@@ -597,7 +597,7 @@
       <workItem from="1512353132566" duration="1614000" />
       <workItem from="1512856006395" duration="592000" />
       <workItem from="1512861086637" duration="6531000" />
-      <workItem from="1513118469074" duration="38435000" />
+      <workItem from="1513118469074" duration="38474000" />
     </task>
     <task id="LOCAL-00001" summary="18.12.2017">
       <created>1513559324776</created>
@@ -634,7 +634,14 @@
       <option name="project" value="LOCAL" />
       <updated>1513736155807</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="20.12.2017">
+      <created>1513737130070</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1513737130070</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -649,7 +656,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50191000" />
+    <option name="totallyTimeSpent" value="50230000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -737,7 +744,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="18.12.2017" />
     <MESSAGE value="18.12.2017_02" />
-    <option name="LAST_COMMIT_MESSAGE" value="18.12.2017_02" />
+    <MESSAGE value="20.12.2017" />
+    <option name="LAST_COMMIT_MESSAGE" value="20.12.2017" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
