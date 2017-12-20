@@ -38,7 +38,7 @@
                 <div class="drop">
                     <div class="box">
                         <select tabindex="4" class="dropdown drop">
-                            <option value="" class="label">111Dollar :</option>
+                            <option value="" class="label">2Dollar :</option>
                             <option value="1">Dollar</option>
                             <option value="2">Euro</option>
                         </select>
