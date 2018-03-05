@@ -31,12 +31,14 @@
             <div class="col-md-6 account-left">
                 <h3>Existing User</h3>
                 <div class="account-bottom">
-                    <input placeholder="Email" type="text" tabindex="3" required>
-                    <input placeholder="Password" type="password" tabindex="4" required>
-                    <div class="address">
-                        <a class="forgot" href="#">Forgot Your Password?</a>
-                        <input type="submit" value="Login">
-                    </div>
+                    <form action="mainServlet">
+                        <input name="role" placeholder="Email" type="text" tabindex="3" required>
+                        <input placeholder="Password" type="password" tabindex="4" required>
+                        <div class="address">
+                            <a class="forgot" href="#">Forgot Your Password?</a>
+                            <input type="submit" value="Login">
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class="col-md-6 account-right account-left">

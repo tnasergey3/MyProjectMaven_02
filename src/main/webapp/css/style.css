@@ -44,6 +44,7 @@ body a{
     font-family: 'Lora-Regular';
     text-transform: uppercase;
 	display: inline-block;
+	font-weight:bold;
 }
 .logo a:hover{
 	text-decoration:none;
@@ -72,7 +73,7 @@ body a{
     -webkit-appearance: none;
     border: 0;
     display: inline-block;
-    vertical-align: -webkit-baseline-middle;
+/* vertical-align: -webkit-baseline-middle;	*/
     position: absolute;
     width: 18px;
     height: 18px;
@@ -83,6 +84,13 @@ body a{
     width: 93%;
     float: right;
 	border: solid 1px #DEDEDE;
+}
+
+.login {
+	text-decoration:none;
+	color: #FFFFFF;
+	font-size: 14px;
+	float:left;
 }
 /*----*/
 .itemContainer{
@@ -136,7 +144,7 @@ span.simpleCart_total {
     font-size: 13px;
 }
 .box_1 p {
-	margin: 0px 0 0px 8px;
+	margin: 0px 0px 0px 8px;
 }	
 .total {
 	display: inline-block;

@@ -38,7 +38,7 @@
                 <div class="drop">
                     <div class="box">
                         <select tabindex="4" class="dropdown drop">
-                            <option value="" class="label">2Dollar :</option>
+                            <option value="" class="label">Dollar :</option>
                             <option value="1">Dollar</option>
                             <option value="2">Euro</option>
                         </select>
@@ -55,6 +55,18 @@
                 </div>
             </div>
             <div class="col-md-6 top-header-left">
+                <div class="login" style="visibility:visible;">
+                    Hello <span id="user_login" style="font-weight:bold;">${param.role}</span>
+                    <div style="visibility:visible;">
+                        <a href="account.jsp">
+                            <div class="">
+                                <span class="login" style="color:rgba(255, 255, 255, 0.6);">Sign in or Create an account</span>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- <div class="clearfix"> </div>  -->
+                </div>
+
                 <div class="cart box_1">
                     <a href="checkout.jsp">
                         <div class="total">

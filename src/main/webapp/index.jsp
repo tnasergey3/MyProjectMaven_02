@@ -27,6 +27,7 @@
   <div class="clearfix"> </div>
 </div>
 <!--banner-ends-->
+${role}
 <!--Slider-Starts-Here-->
 <script src="js/responsiveslides.min.js"></script>
 <script>
@@ -204,5 +205,4 @@
   </div>
 </div>
 <!--product-end-->
-
 <%@ include file = "footer.jsp" %>
