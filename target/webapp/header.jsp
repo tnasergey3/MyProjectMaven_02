@@ -56,11 +56,11 @@
             </div>
             <div class="col-md-6 top-header-left">
                 <div class="login" style="visibility:visible;">
-                    Hello <span id="user_login" style="font-weight:bold;">${param.role}</span>
+                    Hello <span id="user_login" style="font-weight:bold;">${ role }</span>
                     <div style="visibility:visible;">
-                        <a href="account.jsp">
+                        <a href="mainServlet">
                             <div class="">
-                                <span class="login" style="color:rgba(255, 255, 255, 0.6);">Sign in or Create an account</span>
+                                <span class="login" style="color:rgba(255, 255, 255, 0.6);">${ statusLoginInHeader }</span>
                             </div>
                         </a>
                     </div>

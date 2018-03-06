@@ -19,15 +19,49 @@ import java.sql.DriverManager;
 public class MainServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //////////////////////////////////////////////////
+        try {
+            //String statusLoginInHeader = "";
+            HttpSession session = request.getSession(true);
+
+            // Разлогинивание
+            if(request.getParameter("statusLoginInHeader") == "Exit")
+            {
+                session.setAttribute("role", "Guest");
+                session.setAttribute("statusLoginInHeader", "Sign in or Create an account");
+                request.getRequestDispatcher("/account.jsp").forward(request, response);
+
+            // Первый вход, загрузка галавной страницы
+            } else if (request.getParameter("statusLoginInHeader") == "Sign in or Create an account" || session.getAttribute("role") == null) {
+                session.setAttribute("role", "Guest");
+                session.setAttribute("statusLoginInHeader", "Sign in or Create an account");
+                request.getRequestDispatcher("/index.jsp").forward(request, response);
+
+                // Авторизация пользователя
+            } else if (request.getParameter("statusLoginInHeader") == "Sign in or Create an account") {
+                //session.setAttribute("role", request.getParameter("roleUser"));
+                //session.setAttribute("statusLoginInHeader", "Exit");
+                request.getRequestDispatcher("/account.jsp").forward(request, response);
+            } else
+
+            // Запуск главной страницы
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
+        }
+        catch (Exception e) {
+            throw new ServletException(e.getMessage());
+        }
+
+
+
 //        PrintWriter writer = response.getWriter();
 
-        // Connect to database
-        String hostName = "sqlserverdb0.database.windows.net";
-        String dbName = "luxuryWatchesDB";
-        String user = "sqladmin";
-        String password = "80978986707sS";
-        String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
-        Connection connection = null;
+//        // Connect to database
+//        String hostName = "sqlserverdb0.database.windows.net";
+//        String dbName = "luxuryWatchesDB";
+//        String user = "sqladmin";
+//        String password = "80978986707sS";
+//        String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
+//        Connection connection = null;
 
 //        try {
 //
@@ -70,7 +104,7 @@ public class MainServlet extends HttpServlet {
 
         ///////////////////
 
-        try {
+        //try {
             //HttpSession session = request.getSession(true);
             //if (session.getAttribute("role") == null) {
                 //session.setAttribute("role", "Гость");
@@ -81,27 +115,11 @@ public class MainServlet extends HttpServlet {
             //request.setAttribute("userName", "Гость");
             //request.getRequestDispatcher("/index.jsp").forward(request, response);
 
-            HttpSession session = request.getSession(true);
-            if (session.getAttribute("role") == null) {
-                session.setAttribute("role", "moderator");
-            }
-/* количество запросов, которые были сделаны
-к данному сервлету текущим пользователем
-в рамках текущей пользовательской сессии */
-            Integer counter = (Integer) session.getAttribute("counter");
-            if (counter == null) {
-                session.setAttribute("counter", 1);
-            } else {
-/* увеличивает счетчик обращений к текущему сервлету и кладет его в сессию */
-                counter++;
-                session.setAttribute("counter", counter);
-            }
-            request.setAttribute("lifecycle", "CONTROL request LIFECYCLE");
-            request.getRequestDispatcher("/sessionattr.jsp").forward(request, response);
 
-        } catch (Exception e) {
-            throw new ServletException(e.getMessage());
-        }
+
+//        } catch (Exception e) {
+//            throw new ServletException(e.getMessage());
+//        }
         ///////////////////
     }
 

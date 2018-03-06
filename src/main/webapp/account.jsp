@@ -32,7 +32,7 @@
                 <h3>Existing User</h3>
                 <div class="account-bottom">
                     <form action="mainServlet">
-                        <input name="role" placeholder="Email" type="text" tabindex="3" required>
+                        <input name="roleUser" placeholder="Email" type="text" tabindex="3" required>
                         <input placeholder="Password" type="password" tabindex="4" required>
                         <div class="address">
                             <a class="forgot" href="#">Forgot Your Password?</a>

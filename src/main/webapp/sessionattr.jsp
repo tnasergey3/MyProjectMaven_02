@@ -18,6 +18,6 @@ Counter: ${counter}
 MaxInactiveInterval: ${pageContext.session.maxInactiveInterval}<br/>
 ID session: ${pageContext.session.id}<br/>
 Lifecycle: ${lifecycle}<br/>
-<a href="index.jsp">Back to index.jsp</a>
+<a href="index.jsp">Back to indexTest.jsp</a>
 </body>
 </html>
