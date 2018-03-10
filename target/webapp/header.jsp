@@ -234,4 +234,5 @@
         </div>
     </div>
 </div>
+${messages}
 <!--bottom-header-->
