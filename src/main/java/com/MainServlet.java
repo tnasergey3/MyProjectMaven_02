@@ -15,17 +15,53 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.DriverManager;
 
-@WebServlet(name = "mainServlet")
+
+
+@WebServlet(name = "mainServlet", urlPatterns = "/mainServlet")
 public class MainServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //////////////////////////////////////////////////
+
         try {
-            //String statusLoginInHeader = "";
             HttpSession session = request.getSession(true);
 
+            // Загрузка главной страницы первый раз
+            if (session.getAttribute("role") == null) {
+                session.setAttribute("role", "Guest");
+                session.setAttribute("statusLoginInHeader", "Sign in or Create an account");
+                request.getRequestDispatcher("/index.jsp").forward(request, response);
+            }
+             //Загрузка страницы не в первый раз
+            else {
+                if (session.getAttribute(request.getParameter("roleUser")) == null)
+                    session.setAttribute("roleUser", "Guest");
+
+                // Авторизация пользователя
+                if (request.getParameter("roleUser") != "Guest") {
+                    session.setAttribute("role", request.getParameter("roleUser"));
+                    session.setAttribute("statusLoginInHeader", "Exit");
+                    request.getRequestDispatcher("/single.jsp").forward(request, response);
+                }
+
+                // Если пользователь Guest
+                if (session.getAttribute("role") == "Guest") {
+                    request.getRequestDispatcher("/account.jsp").forward(request, response);
+                }
+////
+////                // Разлогинивание пользователя
+//                if(request.getParameter("statusLoginInHeader") == "Exit") {
+//                    session.setAttribute("role", "Guest");
+//                    session.setAttribute("statusLoginInHeader", "Sign in or Create an account");
+//                    request.getRequestDispatcher("/account.jsp").forward(request, response);
+//                }
+                //request.getRequestDispatcher("/products.jsp").forward(request, response);
+            }
+
+            request.getRequestDispatcher("/register.jsp").forward(request, response);
+
+            // Авторизация пользователя
             // Разлогинивание
-            if(request.getParameter("statusLoginInHeader") == "Exit")
+/*            if(request.getParameter("statusLoginInHeader") == "Exit")
             {
                 session.setAttribute("role", "Guest");
                 session.setAttribute("statusLoginInHeader", "Sign in or Create an account");
@@ -43,13 +79,16 @@ public class MainServlet extends HttpServlet {
                 //session.setAttribute("statusLoginInHeader", "Exit");
                 request.getRequestDispatcher("/account.jsp").forward(request, response);
             } else
-
+*/
             // Запуск главной страницы
-            request.getRequestDispatcher("/index.jsp").forward(request, response);
+            //request.getRequestDispatcher("/index.jsp").forward(request, response);
+
+
         }
         catch (Exception e) {
             throw new ServletException(e.getMessage());
         }
+
 
 
 
@@ -101,26 +140,6 @@ public class MainServlet extends HttpServlet {
 //        writer.close();
 
 
-
-        ///////////////////
-
-        //try {
-            //HttpSession session = request.getSession(true);
-            //if (session.getAttribute("role") == null) {
-                //session.setAttribute("role", "Гость");
-            //}
-            //String testUser = request.getParameter("Гость");
-
-            //request.setAttribute("userName", testUser);
-            //request.setAttribute("userName", "Гость");
-            //request.getRequestDispatcher("/index.jsp").forward(request, response);
-
-
-
-//        } catch (Exception e) {
-//            throw new ServletException(e.getMessage());
-//        }
-        ///////////////////
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
