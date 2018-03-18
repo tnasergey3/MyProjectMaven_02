@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Luxury Watches A Ecommerce Category Flat Bootstrap Resposive Website Template | Home :: w3layouts</title>
+    <title>Luxury Watches</title>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <!--jQuery(necessary for Bootstrap's JavaScript plugins)-->
     <script src="js/jquery-1.11.0.min.js"></script>
@@ -58,7 +58,7 @@
                 <div class="login" style="visibility:visible;">
                     Hello <span id="user_login" style="font-weight:bold;">${ role }</span>
                     <div style="visibility:visible;">
-                        <a href="mainServlet">
+                        <a href="account.jsp">
                             <div class="">
                                 <span class="login" style="color:rgba(255, 255, 255, 0.6);">${ statusLoginInHeader }</span>
                             </div>
@@ -84,7 +84,12 @@
 <!--top-header-->
 <!--start-logo-->
 <div class="logo">
-    <a href="index.jsp"><h1>Luxury Watches</h1></a>
+    <a href="index.jsp"><h3>
+        Luxury Watches  </br>
+        Role: ${role}   </br>
+        ID Session: ${pageContext.session.id} </br>
+        tempValue: ${tempValue}
+    </h3></a>
 </div>
 <!--start-logo-->
 <!--bottom-header-->

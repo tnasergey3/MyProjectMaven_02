@@ -23,7 +23,12 @@ public class MainServlet extends HttpServlet {
             throws ServletException, IOException {
 
         try {
+//            String tempValue1 = request.getParameter("roleUser").toString();
+
+
             HttpSession session = request.getSession(true);
+//            session.setAttribute("tempValue", tempValue1);
+
 
             // Загрузка главной страницы первый раз
             if (session.getAttribute("role") == null) {
@@ -33,31 +38,34 @@ public class MainServlet extends HttpServlet {
             }
              //Загрузка страницы не в первый раз
             else {
-                if (session.getAttribute(request.getParameter("roleUser")) == null)
-                    session.setAttribute("roleUser", "Guest");
+                // Обработка входа пользователя
+//                if (session.getAttribute("role") != "Guest") {
+//                    session.setAttribute("role", request.getParameter("roleUser"));
+//                    session.setAttribute("statusLoginInHeader", "Exit");
+//                    request.getRequestDispatcher("/checkout.jsp").forward(request, response);
+//                }
 
-                // Авторизация пользователя
-                if (request.getParameter("roleUser") != "Guest") {
-                    session.setAttribute("role", request.getParameter("roleUser"));
-                    session.setAttribute("statusLoginInHeader", "Exit");
-                    request.getRequestDispatcher("/single.jsp").forward(request, response);
-                }
+                request.getRequestDispatcher("/sessionattr.jsp").forward(request, response);
 
-                // Если пользователь Guest
-                if (session.getAttribute("role") == "Guest") {
-                    request.getRequestDispatcher("/account.jsp").forward(request, response);
-                }
-////
-////                // Разлогинивание пользователя
-//                if(request.getParameter("statusLoginInHeader") == "Exit") {
-//                    session.setAttribute("role", "Guest");
-//                    session.setAttribute("statusLoginInHeader", "Sign in or Create an account");
+
+
+
+//
+//                // Авторизация пользователя
+//                if (request.getParameter("roleUser") != "Guest") {
+//                    session.setAttribute("role", request.getParameter("roleUser"));
+//                    session.setAttribute("statusLoginInHeader", "Exit");
+//                    request.getRequestDispatcher("/single.jsp").forward(request, response);
+//                }
+//
+//                // Если пользователь Guest
+//                if (session.getAttribute("role") == "Guest") {
 //                    request.getRequestDispatcher("/account.jsp").forward(request, response);
 //                }
-                //request.getRequestDispatcher("/products.jsp").forward(request, response);
+//
             }
-
-            request.getRequestDispatcher("/register.jsp").forward(request, response);
+//
+//            request.getRequestDispatcher("/register.jsp").forward(request, response);
 
             // Авторизация пользователя
             // Разлогинивание
@@ -143,6 +151,13 @@ public class MainServlet extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+
+        }
+        catch (Exception e) {
+            throw new ServletException(e.getMessage());
+        }
 
     }
+
 }
