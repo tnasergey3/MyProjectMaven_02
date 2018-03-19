@@ -58,7 +58,7 @@
                 <div class="login" style="visibility:visible;">
                     Hello <span id="user_login" style="font-weight:bold;">${ role }</span>
                     <div style="visibility:visible;">
-                        <a href="account.jsp">
+                        <a href="AccountServlet">
                             <div class="">
                                 <span class="login" style="color:rgba(255, 255, 255, 0.6);">${ statusLoginInHeader }</span>
                             </div>
@@ -88,7 +88,6 @@
         Luxury Watches  </br>
         Role: ${role}   </br>
         ID Session: ${pageContext.session.id} </br>
-        tempValue: ${tempValue}
     </h3></a>
 </div>
 <!--start-logo-->
@@ -239,5 +238,5 @@
         </div>
     </div>
 </div>
-${messages}
+
 <!--bottom-header-->

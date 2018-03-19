@@ -7,6 +7,17 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+<%
+  session = request.getSession(true);
+  if (session.getAttribute("statusLoginInHeader") == null) {
+    session.setAttribute("role", "Guest");
+    session.setAttribute("statusLoginInHeader", "Sign in or Create an account");
+    request.getRequestDispatcher("/index.jsp").forward(request, response);
+  } else {
+
+  }
+%>
+
 <%@ include file = "header.jsp" %>
 
 <!--banner-starts-->
@@ -205,4 +216,7 @@
   </div>
 </div>
 <!--product-end-->
+
 <%@ include file = "footer.jsp" %>
+
+

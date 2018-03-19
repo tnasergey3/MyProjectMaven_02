@@ -23,18 +23,13 @@ public class MainServlet extends HttpServlet {
             throws ServletException, IOException {
 
         try {
-//            String tempValue1 = request.getParameter("roleUser").toString();
-
 
             HttpSession session = request.getSession(true);
-//            session.setAttribute("tempValue", tempValue1);
-
-
             // Загрузка главной страницы первый раз
             if (session.getAttribute("role") == null) {
                 session.setAttribute("role", "Guest");
                 session.setAttribute("statusLoginInHeader", "Sign in or Create an account");
-                request.getRequestDispatcher("/index.jsp").forward(request, response);
+                request.getRequestDispatcher("/contact.jsp").forward(request, response);
             }
              //Загрузка страницы не в первый раз
             else {
@@ -64,33 +59,6 @@ public class MainServlet extends HttpServlet {
 //                }
 //
             }
-//
-//            request.getRequestDispatcher("/register.jsp").forward(request, response);
-
-            // Авторизация пользователя
-            // Разлогинивание
-/*            if(request.getParameter("statusLoginInHeader") == "Exit")
-            {
-                session.setAttribute("role", "Guest");
-                session.setAttribute("statusLoginInHeader", "Sign in or Create an account");
-                request.getRequestDispatcher("/account.jsp").forward(request, response);
-
-            // Первый вход, загрузка галавной страницы
-            } else if (request.getParameter("statusLoginInHeader") == "Sign in or Create an account" || session.getAttribute("role") == null) {
-                session.setAttribute("role", "Guest");
-                session.setAttribute("statusLoginInHeader", "Sign in or Create an account");
-                request.getRequestDispatcher("/index.jsp").forward(request, response);
-
-                // Авторизация пользователя
-            } else if (request.getParameter("statusLoginInHeader") == "Sign in or Create an account") {
-                //session.setAttribute("role", request.getParameter("roleUser"));
-                //session.setAttribute("statusLoginInHeader", "Exit");
-                request.getRequestDispatcher("/account.jsp").forward(request, response);
-            } else
-*/
-            // Запуск главной страницы
-            //request.getRequestDispatcher("/index.jsp").forward(request, response);
-
 
         }
         catch (Exception e) {

@@ -31,7 +31,7 @@
             <div class="col-md-6 account-left">
                 <h3>Existing User</h3>
                 <div class="account-bottom">
-                    <form action="AccountServlet">
+                    <form action="AccountServlet" method="post">
                         <input name="roleUser" placeholder="Email" type="text" tabindex="3" required>
                         <input placeholder="Password" type="password" tabindex="4" required>
                         <div class="address">
@@ -51,28 +51,6 @@
     </div>
 </div>
 <!--account-end-->
-
-<%--<%--%>
-    <%--String myText = request.getParameter("roleUser");--%>
-    <%--if (myText == null) {--%>
-<%--// myText is null when the page is first requested,--%>
-<%--// so do nothing--%>
-    <%--} else {--%>
-           <%--session.setAttribute("role", myText);--%>
-           <%--session.setAttribute("statusLoginInHeader", "Exit");--%>
-        <%--if (myText.length() == 0) {--%>
-<%--// There was a querystring like ?myText=--%>
-<%--// but no text, so myText is not null, but--%>
-<%--// a zero length string instead.--%>
-<%--%>--%>
-<%--<b>myText is empty</b>--%>
-<%--<% } else { %>--%>
-<%--<b>myText is <%= myText %></b>--%>
-<%--<%--%>
-        <%--}--%>
-    <%--}--%>
-<%--%>--%>
-
 
 <%@ include file = "footer.jsp" %>
 
