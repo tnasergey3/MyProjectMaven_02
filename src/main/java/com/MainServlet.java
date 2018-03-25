@@ -41,23 +41,6 @@ public class MainServlet extends HttpServlet {
 //                }
 
                 request.getRequestDispatcher("/sessionattr.jsp").forward(request, response);
-
-
-
-
-//
-//                // Авторизация пользователя
-//                if (request.getParameter("roleUser") != "Guest") {
-//                    session.setAttribute("role", request.getParameter("roleUser"));
-//                    session.setAttribute("statusLoginInHeader", "Exit");
-//                    request.getRequestDispatcher("/single.jsp").forward(request, response);
-//                }
-//
-//                // Если пользователь Guest
-//                if (session.getAttribute("role") == "Guest") {
-//                    request.getRequestDispatcher("/account.jsp").forward(request, response);
-//                }
-//
             }
 
         }

@@ -88,6 +88,7 @@
         Luxury Watches  </br>
         Role: ${role}   </br>
         ID Session: ${pageContext.session.id} </br>
+        TestFromDB: ${testDB}
     </h3></a>
 </div>
 <!--start-logo-->

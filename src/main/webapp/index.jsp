@@ -1,4 +1,8 @@
-<%--
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.io.PrintWriter" %>
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.ResultSet" %><%--
   Created by IntelliJ IDEA.
   User: user
   Date: 28.11.2017
@@ -8,14 +12,74 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
+  // Создание "гостя"
   session = request.getSession(true);
   if (session.getAttribute("statusLoginInHeader") == null) {
     session.setAttribute("role", "Guest");
     session.setAttribute("statusLoginInHeader", "Sign in or Create an account");
+    // Подключение к базе данных нет, его нужно создать
+    session.setAttribute("connectToDB", "connect");
     request.getRequestDispatcher("/index.jsp").forward(request, response);
   } else {
-
+    // Подключение к базе данных есть, его не нужно создать
+    session.setAttribute("connectToDB", "connect");
   }
+
+  //PrintWriter writer = response.getWriter();
+  // Connect to database
+  if(session.getAttribute("connectToDB") == "connect") {
+    String hostName = "sqlserverdb0.database.windows.net";
+    String dbName = "luxuryWatchesDB";
+    String user = "sqladmin";
+    String password = "80978986707sS";
+    String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
+    Connection connection = null;
+
+        try {
+
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            connection = DriverManager.getConnection(url);
+            String schema = connection.getSchema();
+//            writer.println("Successful connection - Schema: " + schema);
+//
+//            writer.println("Query data example:");
+//            writer.println("=========================================");
+
+            // Create and execute a SELECT SQL statement.
+            String selectSql = "SELECT brand_name FROM Brand WHERE brand_name = 'Titan'";
+
+            //request.getRequestDispatcher("/header.jsp").forward(request, response);
+
+            //String selectSql = "SELECT * FROM Brand";
+//            String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName "
+//                    + "FROM [SalesLT].[ProductCategory] pc "
+//                    + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
+
+            try (Statement statement = connection.createStatement();
+                 ResultSet resultSet = statement.executeQuery(selectSql)) {
+
+
+//
+//
+//                // Print results from select statement
+//                writer.println("Output information from table Brand");
+                while (resultSet.next())
+                {
+                    session.setAttribute("testDB", resultSet.getString(1));
+//                    writer.println(resultSet.getString(1) + " "
+//                            + resultSet.getString(2));
+                }
+                connection.close();
+            }
+        }
+        catch (Exception e) {
+                throw new ServletException(e.getMessage());
+            }
+//
+//        writer.close();
+  } else { }
+
+
 %>
 
 <%@ include file = "header.jsp" %>
