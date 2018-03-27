@@ -27,59 +27,61 @@
 
   //PrintWriter writer = response.getWriter();
   // Connect to database
-  if(session.getAttribute("connectToDB") == "connect") {
-    String hostName = "sqlserverdb0.database.windows.net";
-    String dbName = "luxuryWatchesDB";
-    String user = "sqladmin";
-    String password = "80978986707sS";
-    String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
-    Connection connection = null;
+//  if(session.getAttribute("connectToDB") == "connect") {
+//    String hostName = "sqlserverdb0.database.windows.net";
+//    String dbName = "luxuryWatchesDB";
+//    String user = "sqladmin";
+//    String password = "80978986707sS";
+//    String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
+//    Connection connection = null;
 
-        try {
+//        try {
 
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            connection = DriverManager.getConnection(url);
-            String schema = connection.getSchema();
-//            writer.println("Successful connection - Schema: " + schema);
+//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+//            connection = DriverManager.getConnection(url);
+//            String schema = connection.getSchema();
+////            writer.println("Successful connection - Schema: " + schema);
+////
+////            writer.println("Query data example:");
+////            writer.println("=========================================");
 //
-//            writer.println("Query data example:");
-//            writer.println("=========================================");
-
-            // Create and execute a SELECT SQL statement.
-            String selectSql = "SELECT brand_name FROM Brand WHERE brand_name = 'casio'";
-
-            //request.getRequestDispatcher("/header.jsp").forward(request, response);
-
-            //String selectSql = "SELECT * FROM Brand";
-//            String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName "
-//                    + "FROM [SalesLT].[ProductCategory] pc "
-//                    + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
-
-            try (Statement statement = connection.createStatement();
-                 ResultSet resultSet = statement.executeQuery(selectSql)) {
-
-
+//            // Create and execute a SELECT SQL statement.
+//            String selectSql = "SELECT brand_name FROM Brand WHERE brand_name = 'Titan'";
+//
+//            //request.getRequestDispatcher("/header.jsp").forward(request, response);
+//
+//            //String selectSql = "SELECT * FROM Brand";
+////            String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName "
+////                    + "FROM [SalesLT].[ProductCategory] pc "
+////                    + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
+//
+//            try (Statement statement = connection.createStatement();
+//                 ResultSet resultSet = statement.executeQuery(selectSql)) {
 //
 //
-//                // Print results from select statement
-//                writer.println("Output information from table Brand");
-                while (resultSet.next())
-                {
-                    session.setAttribute("testDB", resultSet.getString(1));
-//                    writer.println(resultSet.getString(1) + " "
-//                            + resultSet.getString(2));
-                }
-                connection.close();
-            }
-        }
-        catch (Exception e) {
-                throw new ServletException(e.getMessage());
-            }
-//
-//        writer.close();
-  } else { }
+////
+////
+////                // Print results from select statement
+////                writer.println("Output information from table Brand");
+//                while (resultSet.next())
+//                {
+//                    session.setAttribute("testDB", resultSet.getString(1));
+////                    writer.println(resultSet.getString(1) + " "
+////                            + resultSet.getString(2));
+//                }
+//                connection.close();
+//            }
+//        }
+//        catch (Exception e) {
+//                throw new ServletException(e.getMessage());
+//            }
+////
+////        writer.close();
+//  } else { }
 
-
+//  PrintWriter writer = response.getWriter();
+//  writer.println("<script>alert('123');</script>");
+//  writer.close();
 %>
 
 <%@ include file = "header.jsp" %>
