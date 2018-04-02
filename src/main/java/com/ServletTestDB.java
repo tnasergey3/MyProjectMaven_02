@@ -50,24 +50,26 @@ public class ServletTestDB extends HttpServlet {
                 Statement statement = null;
                 statement = connection.createStatement();
 
-                String query = "SELECT listUsers_Email FROM ListUsers where listUsers_Email = 'admin'";
+                String query = "SELECT listUsers_Email FROM ListUsers WHERE listUsers_Email = 'admin'";
+                //String query = "SELECT listUsers_Email FROM ListUsers";
                 //Выполним запрос
                 ResultSet result1 = statement.executeQuery(query);
+
                 //result это указатель на первую строку с выборки
                 //чтобы вывести данные мы будем использовать
                 //метод next() , с помощью которого переходим к следующему элементу
                 while (result1.next()) {
-                    if (roleUser_str == result1.getString(1).toString()) {
-                        writer.println(result1.getString(1));
+//                    if (roleUser_str == result1.getString(1).toString()) {
+                    writer.println("Result = " + result1.getString(1));
 //                        session.invalidate();
 //                        session = request.getSession(true);
 //                        session.setAttribute("role", roleUser_str);
 //                        session.setAttribute("statusLoginInHeader", "Exit");
-                    } else {
-                        //PrintWriter writer = response.getWriter();
-                        writer.println("<script>alert('Такого пользователя не существует');</script>");
-
-                    }
+//                    } else {
+//                        writer = response.getWriter();
+//                        writer.println("<script>alert('Такого пользователя не существует');</script>");
+//
+//                    }
                 }
             } catch (Exception ex) {
                 //выводим наиболее значимые сообщения

@@ -17,10 +17,7 @@ public class AccountServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HttpSession session = request.getSession(true);
-
-        //
         String roleUser_str = request.getParameter("roleUser");
-        //String resultQuary = null;
 
         if(roleUser_str != null) {
 
@@ -43,20 +40,24 @@ public class AccountServlet extends HttpServlet {
             statement = connection.createStatement();
 
             String query = "SELECT listUsers_Email FROM ListUsers where listUsers_Email = '" + roleUser_str + "'";
+            //String query = "SELECT listUsers_Email FROM ListUsers where listUsers_Email = 'admin'";
             //Выполним запрос
             ResultSet result1 = statement.executeQuery(query);
             //result это указатель на первую строку с выборки
             //чтобы вывести данные мы будем использовать
             //метод next() , с помощью которого переходим к следующему элементу
             while (result1.next()) {
-                if(roleUser_str == result1.getString(1)){
+                PrintWriter writer = response.getWriter();
+                String result1_str = result1.getString(1).toString();
+                if(result1_str.equals(roleUser_str)){
+                    //                writer.println("Result = " + result1.getString(1));
                     session.invalidate();
                     session = request.getSession(true);
                     session.setAttribute("role", roleUser_str);
                     session.setAttribute("statusLoginInHeader", "Exit");
                 } else {
-                  PrintWriter writer = response.getWriter();
-                  writer.println("<script>alert('Такого пользователя не существует');</script>");
+                  //PrintWriter writer = response.getWriter();
+                  writer.println("<script>alert('Takogo polzovatelya net');</script>");
                   writer.close();
                 }
             }
