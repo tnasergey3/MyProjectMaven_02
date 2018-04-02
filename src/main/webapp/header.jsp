@@ -84,12 +84,12 @@
 <!--top-header-->
 <!--start-logo-->
 <div class="logo">
-    <a href="index.jsp"><h3>
+    <a href="index.jsp"><h2>
         Luxury Watches  </br>
         Role: ${role}   </br>
         ID Session: ${pageContext.session.id} </br>
-        TestFromDB: ${testDB}
-    </h3></a>
+        userExistence: ${userExistence}
+    </h2></a>
 </div>
 <!--start-logo-->
 <!--bottom-header-->
