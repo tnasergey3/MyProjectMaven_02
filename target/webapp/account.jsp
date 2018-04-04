@@ -9,6 +9,17 @@
 
 <%@ include file = "header.jsp" %>
 
+<%-- Проверка на существования пользователя в БД --%>
+<script>
+    if ('${userExistence_Switch}' == "on") {
+        if ('${userExistence}' == "false") {
+            alert("Ошибка! Пользователь не существует");
+        } else {
+            alert("Пользователь существует");
+        }
+    }
+</script>
+
 <!--start-breadcrumbs-->
 <div class="breadcrumbs">
     <div class="container">

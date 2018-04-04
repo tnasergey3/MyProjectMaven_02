@@ -88,7 +88,8 @@
         Luxury Watches  </br>
         Role: ${role}   </br>
         ID Session: ${pageContext.session.id} </br>
-        userExistence: ${userExistence}
+        userExistence_Switch: ${userExistence_Switch} </br>
+        userExistence: ${userExistence} </br>
     </h2></a>
 </div>
 <!--start-logo-->

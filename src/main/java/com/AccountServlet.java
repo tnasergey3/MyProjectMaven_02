@@ -18,6 +18,7 @@ public class AccountServlet extends HttpServlet {
 
         HttpSession session = request.getSession(true);
         String roleUser_str = request.getParameter("roleUser");
+        session.setAttribute("userExistence_Switch", "on");
 
         if(roleUser_str != null) {
 
@@ -37,6 +38,8 @@ public class AccountServlet extends HttpServlet {
             Statement statement = null;
             statement = connection.createStatement();
 
+            session.setAttribute("userExistence", "false");
+
             String query = "SELECT listUsers_Email FROM ListUsers where listUsers_Email = '" + roleUser_str + "'";
             //Выполним запрос
             ResultSet result1 = statement.executeQuery(query);
@@ -45,7 +48,7 @@ public class AccountServlet extends HttpServlet {
             //метод next() , с помощью которого переходим к следующему элементу
             while (result1.next()) {
                 //PrintWriter writer = response.getWriter();
-                String result1_str = result1.getString("lisrUsers_Email");
+                String result1_str = result1.getString("listUsers_Email");
                 String password_srt = result1.getString("listUsers_Password");
                 if(result1_str.equals(roleUser_str)){
                     //                writer.println("Result = " + result1.getString(1));
@@ -53,9 +56,9 @@ public class AccountServlet extends HttpServlet {
                     session = request.getSession(true);
                     session.setAttribute("role", roleUser_str);
                     session.setAttribute("statusLoginInHeader", "Exit");
-                    session.setAttribute("userExistence", true);
+                    session.setAttribute("userExistence", "true");
                 } else {
-                    session.setAttribute("userExistence", false);
+                    session.setAttribute("userExistence", "false");
 
                   //PrintWriter writer = response.getWriter();
 //                  writer.println("<script>alert('Takogo polzovatelya net');</script>");
@@ -84,6 +87,9 @@ public class AccountServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             try {
                 HttpSession session = request.getSession(true);
+
+                // Маркер активизации запуска js-скрипта для вывода сообщенич "пользователя не существует"
+                session.setAttribute("userExistence_Switch", "off");
 
                     if(session.getAttribute("role") != "Guest") {
 

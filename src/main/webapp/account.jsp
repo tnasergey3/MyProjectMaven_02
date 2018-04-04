@@ -11,12 +11,13 @@
 
 <%-- Проверка на существования пользователя в БД --%>
 <script>
-    if ('${userExistence}' == false) {
-        alert("Ошибка! Пользователь не существует.");
-    } else {
-        alert("Ошибка! Пользователь существует.");
+    if ('${userExistence_Switch}' == "on") {
+        if ('${userExistence}' == "false") {
+            alert("Ошибка! Пользователь не существует");
+        } else {
+            alert("Пользователь существует");
+        }
     }
-
 </script>
 
 <!--start-breadcrumbs-->
