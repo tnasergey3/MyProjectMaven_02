@@ -84,13 +84,13 @@
 <!--top-header-->
 <!--start-logo-->
 <div class="logo">
-    <a href="index.jsp"><h2>
+    <a href="index.jsp"><h1>
         Luxury Watches  </br>
-        Role: ${role}   </br>
-        ID Session: ${pageContext.session.id} </br>
-        userExistence_Switch: ${userExistence_Switch} </br>
-        userExistence: ${userExistence} </br>
-    </h2></a>
+        <%--Role: ${role}   </br>--%>
+        <%--ID Session: ${pageContext.session.id} </br>--%>
+        <%--userExistence_Switch: ${userExistence_Switch} </br>--%>
+        <%--userExistence: ${userExistence} </br>--%>
+    </h1></a>
 </div>
 <!--start-logo-->
 <!--bottom-header-->

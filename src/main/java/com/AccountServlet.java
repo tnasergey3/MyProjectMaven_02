@@ -21,8 +21,6 @@ public class AccountServlet extends HttpServlet {
         session.setAttribute("userExistence_Switch", "on");
 
         if(roleUser_str != null) {
-
-            // ********************
             // Connect to database
             String hostName = "sqlserverdb0.database.windows.net";
             String dbName = "luxuryWatchesDB";
@@ -38,7 +36,7 @@ public class AccountServlet extends HttpServlet {
             Statement statement = null;
             statement = connection.createStatement();
 
-            session.setAttribute("userExistence", "false");
+            session.setAttribute("userExistence", "true");
 
             String query = "SELECT listUsers_Email FROM ListUsers where listUsers_Email = '" + roleUser_str + "'";
             //Выполним запрос
@@ -47,11 +45,8 @@ public class AccountServlet extends HttpServlet {
             //чтобы вывести данные мы будем использовать
             //метод next() , с помощью которого переходим к следующему элементу
             while (result1.next()) {
-                //PrintWriter writer = response.getWriter();
                 String result1_str = result1.getString("listUsers_Email");
-                String password_srt = result1.getString("listUsers_Password");
                 if(result1_str.equals(roleUser_str)){
-                    //                writer.println("Result = " + result1.getString(1));
                     session.invalidate();
                     session = request.getSession(true);
                     session.setAttribute("role", roleUser_str);
@@ -59,10 +54,6 @@ public class AccountServlet extends HttpServlet {
                     session.setAttribute("userExistence", "true");
                 } else {
                     session.setAttribute("userExistence", "false");
-
-                  //PrintWriter writer = response.getWriter();
-//                  writer.println("<script>alert('Takogo polzovatelya net');</script>");
-//                  writer.close();
                 }
             }
         } catch (Exception ex) {
@@ -77,11 +68,8 @@ public class AccountServlet extends HttpServlet {
                 }
             }
         }
-            // ********************
-
         }
         request.getRequestDispatcher("/account.jsp").forward(request, response);
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -92,21 +80,16 @@ public class AccountServlet extends HttpServlet {
                 session.setAttribute("userExistence_Switch", "off");
 
                     if(session.getAttribute("role") != "Guest") {
-
-                    session.invalidate();
-                    session = request.getSession(true);
-                    session.setAttribute("role", "Guest");
-                    session.setAttribute("statusLoginInHeader", "Sign in or Create an account");
-
-                } else if(session.getAttribute("role") == "Guest") {
-
-                }
+                        session.invalidate();
+                        session = request.getSession(true);
+                        session.setAttribute("role", "Guest");
+                        session.setAttribute("statusLoginInHeader", "Sign in or Create an account");
+                } else if(session.getAttribute("role") == "Guest") {                }
 
                 request.getRequestDispatcher("/account.jsp").forward(request, response);
             }
             catch (Exception e) {
                 throw new ServletException(e.getMessage());
             }
-
     }
 }

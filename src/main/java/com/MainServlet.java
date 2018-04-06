@@ -40,7 +40,7 @@ public class MainServlet extends HttpServlet {
 //                    request.getRequestDispatcher("/checkout.jsp").forward(request, response);
 //                }
 
-                request.getRequestDispatcher("/sessionattr.jsp").forward(request, response);
+
             }
 
         }

@@ -130,38 +130,49 @@
 <!--End-slider-script-->
 <!--about-starts-->
 <div class="about">
-  <div class="container">
-    <div class="about-top grid-1">
-      <div class="col-md-4 about-left">
-        <figure class="effect-bubba">
-          <img class="img-responsive" src="images/abt-1.jpg" alt=""/>
-          <figcaption>
-            <h2>Nulla maximus nunc</h2>
-            <p>In sit amet sapien eros Integer dolore magna aliqua</p>
-          </figcaption>
-        </figure>
-      </div>
-      <div class="col-md-4 about-left">
-        <figure class="effect-bubba">
-          <img class="img-responsive" src="images/abt-2.jpg" alt=""/>
-          <figcaption>
-            <h4>Mauris erat augue</h4>
-            <p>In sit amet sapien eros Integer dolore magna aliqua</p>
-          </figcaption>
-        </figure>
-      </div>
-      <div class="col-md-4 about-left">
-        <figure class="effect-bubba">
-          <img class="img-responsive" src="images/abt-3.jpg" alt=""/>
-          <figcaption>
-            <h4>Cras elit mauris</h4>
-            <p>In sit amet sapien eros Integer dolore magna aliqua</p>
-          </figcaption>
-        </figure>
-      </div>
-      <div class="clearfix"></div>
-    </div>
-  </div>
+  <%--<div class="container">--%>
+      <%--<h3>LUXURY SWISS WATCH RETAILER</h3>--%>
+      <p class="subitem1">
+          The Watch Gallery has the pleasure of introducing luxury Swiss retailer Bucherer to the UK. After a recent acquisition we are now proud to be part of the Bucherer family. With 130 years of watch expertise, your Swiss watch purchases will be courtesy of Europe’s leading Swiss watch retailer.
+          Bucherer combine their strong passion for watches, impeccable hospitality and brand relationships straight from Lucerne - the heart of Switzerland.
+      </p>
+      <p class="subitem1">
+          If you would like to spread the cost of your watch, you can choose from one of our finance options with free 0% interest.
+          All watches are available to buy from the UK. For more information please see our delivery information. Bucherer is an authorised dealer of luxury watches, available for sale online with an international manufacturers guarantee.
+      </p>
+
+
+  <%--<div class="about-top grid-1">--%>
+      <%--<div class="col-md-4 about-left">--%>
+        <%--<figure class="effect-bubba">--%>
+          <%--<img class="img-responsive" src="images/abt-1.jpg" alt=""/>--%>
+          <%--<figcaption>--%>
+            <%--<h2>Nulla maximus nunc</h2>--%>
+            <%--<p>In sit amet sapien eros Integer dolore magna aliqua</p>--%>
+          <%--</figcaption>--%>
+        <%--</figure>--%>
+      <%--</div>--%>
+      <%--<div class="col-md-4 about-left">--%>
+        <%--<figure class="effect-bubba">--%>
+          <%--<img class="img-responsive" src="images/abt-2.jpg" alt=""/>--%>
+          <%--<figcaption>--%>
+            <%--<h4>Mauris erat augue</h4>--%>
+            <%--<p>In sit amet sapien eros Integer dolore magna aliqua</p>--%>
+          <%--</figcaption>--%>
+        <%--</figure>--%>
+      <%--</div>--%>
+      <%--<div class="col-md-4 about-left">--%>
+        <%--<figure class="effect-bubba">--%>
+          <%--<img class="img-responsive" src="images/abt-3.jpg" alt=""/>--%>
+          <%--<figcaption>--%>
+            <%--<h4>Cras elit mauris</h4>--%>
+            <%--<p>In sit amet sapien eros Integer dolore magna aliqua</p>--%>
+          <%--</figcaption>--%>
+        <%--</figure>--%>
+      <%--</div>--%>
+      <%--<div class="clearfix"></div>--%>
+    <%--</div>--%>
+  <%--</div>--%>
 </div>
 <!--about-end-->
 <!--product-starts-->

@@ -12,9 +12,9 @@
 <%-- Проверка на существования пользователя в БД --%>
 <script>
     if ('${userExistence_Switch}' == "on") {
-        if ('${userExistence}' == "false") {
+        if ('${userExistence}' == undefined || '${userExistence}' == null || '${userExistence}' == "true") {
             alert("Ошибка! Пользователь не существует");
-        } else {
+        } else if ('${userExistence}' == "false") {
             alert("Пользователь существует");
         }
     }
