@@ -130,7 +130,7 @@
 <!--End-slider-script-->
 <!--about-starts-->
 <div class="about">
-  <%--<div class="container">--%>
+  <div class="container">
       <%--<h3>LUXURY SWISS WATCH RETAILER</h3>--%>
       <p class="subitem1">
           The Watch Gallery has the pleasure of introducing luxury Swiss retailer Bucherer to the UK. After a recent acquisition we are now proud to be part of the Bucherer family. With 130 years of watch expertise, your Swiss watch purchases will be courtesy of Europe’s leading Swiss watch retailer.
@@ -172,7 +172,7 @@
       <%--</div>--%>
       <%--<div class="clearfix"></div>--%>
     <%--</div>--%>
-  <%--</div>--%>
+  </div>
 </div>
 <!--about-end-->
 <!--product-starts-->
