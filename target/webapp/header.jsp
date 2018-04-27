@@ -129,14 +129,14 @@
                                     <div class="col1 me-one">
                                         <h4>Popular brands</h4>
                                         <ul>
-                                            <li><a href="products.jsp">Rolex</a></li>
-                                            <li><a href="products.jsp">Fastrack</a></li>
-                                            <li><a href="products.jsp">Casio</a></li>
-                                            <li><a href="products.jsp">Fossil</a></li>
-                                            <li><a href="products.jsp">Maxima</a></li>
-                                            <li><a href="products.jsp">Timex</a></li>
-                                            <li><a href="products.jsp">TomTom</a></li>
-                                            <li><a href="products.jsp">Titan</a></li>
+                                            <li><a href="MenuMaintenance_Servlet" name="Rolex" >Rolex</a></li>
+                                            <li><a href="products.jsp" name="Fastrack" >Fastrack</a></li>
+                                            <li><a href="products.jsp" name="Casio" >Casio</a></li>
+                                            <li><a href="products.jsp" name="Fossil" >Fossil</a></li>
+                                            <li><a href="products.jsp" name="Maxima" >Maxima</a></li>
+                                            <li><a href="products.jsp" name="Timex" >Timex</a></li>
+                                            <li><a href="products.jsp" name="TomTom" >TomTom</a></li>
+                                            <li><a href="MenuMaintenance_Servlet" name="Titan" >Titan</a></li>
                                         </ul>
                                     </div>
                                 </div>
