@@ -73,7 +73,7 @@
                             <span class="simpleCart_total"></span></div>
                         <img src="images/cart-1.png" alt="" />
                     </a>
-                    <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+                    <p><a href="#" class="simpleCart_empty">Empty Cart</a></p>
                     <div class="clearfix"> </div>
                 </div>
             </div>
@@ -85,7 +85,7 @@
 <!--start-logo-->
 <div class="logo">
     <a href="index.jsp"><h1>
-        Luxury Watches  </br>
+        Luxury Watches
         <%--Role: ${role}   </br>--%>
         <%--ID Session: ${pageContext.session.id} </br>--%>
         <%--userExistence_Switch: ${userExistence_Switch} </br>--%>
@@ -99,7 +99,7 @@
         <div class="header">
             <div class="col-md-9 header-left">
                 <div class="top-nav">
-                    <ul class="memenu skyblue" class="menu"><li class="active"><a href="index.jsp">Home</a></li>
+                    <ul class="menu"><li class="active"><a href="index.jsp">Home</a></li>
                         <li class="grid"><a href="#">Men</a>
                             <div class="mepanel">
                                 <div class="row">
@@ -129,14 +129,14 @@
                                     <div class="col1 me-one">
                                         <h4>Popular brands</h4>
                                         <ul>
-                                            <li><a href="MenuMaintenance_Servlet" name="Rolex" >Rolex</a></li>
-                                            <li><a href="products.jsp" name="Fastrack" >Fastrack</a></li>
-                                            <li><a href="products.jsp" name="Casio" >Casio</a></li>
-                                            <li><a href="products.jsp" name="Fossil" >Fossil</a></li>
-                                            <li><a href="products.jsp" name="Maxima" >Maxima</a></li>
-                                            <li><a href="products.jsp" name="Timex" >Timex</a></li>
-                                            <li><a href="products.jsp" name="TomTom" >TomTom</a></li>
-                                            <li><a href="MenuMaintenance_Servlet" name="Titan" >Titan</a></li>
+                                            <li><a href="MenuMaintenance_Servlet?brand=Rolex">Rolex</a></li>
+                                            <li><a href="MenuMaintenance_Servlet?brand=Fastrack">Fastrack</a></li>
+                                            <li><a href="MenuMaintenance_Servlet?brand=Casio">Casio</a></li>
+                                            <li><a href="MenuMaintenance_Servlet?brand=Fossil">Fossil</a></li>
+                                            <li><a href="MenuMaintenance_Servlet?brand=Maxima">Maxima</a></li>
+                                            <li><a href="MenuMaintenance_Servlet?brand=Timex">Timex</a></li>
+                                            <li><a href="MenuMaintenance_Servlet?brand=TomTom">TomTom</a></li>
+                                            <li><a href="MenuMaintenance_Servlet?brand=Titan">Titan</a></li>
                                         </ul>
                                     </div>
                                 </div>

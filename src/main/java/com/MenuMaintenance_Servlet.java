@@ -24,7 +24,8 @@ public class MenuMaintenance_Servlet extends HttpServlet {
         PrintWriter writer = response.getWriter();
         response.setContentType("text/plain");
 
-        HttpSession session = request.getSession(true);
+        //HttpSession session = request.getSession(true);
+        String brandSt = request.getParameter("brand");
 
         // Connect to database
 //        String hostName = "sql0serverdb0.database.windows.net";
@@ -34,30 +35,30 @@ public class MenuMaintenance_Servlet extends HttpServlet {
 //        String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
 //        Connection connection = null;
 
-//        try {
+        try {
 
-            // Get the values of all request parameters
-            Enumeration en = request.getParameterNames();
-            while (en.hasMoreElements()) {
+//            // Get the values of all request parameters
+//            Enumeration en = request.getParameterNames();
+//            while (en.hasMoreElements()) {
+//
+//                // Get the name of the request parameter
+//                String name = (String) en.nextElement();
+                writer.println(brandSt);
+//
+//            }
 
-                // Get the name of the request parameter
-                String name = (String) en.nextElement();
-                writer.println(name);
 
-            }
-
-
-//        } catch (Exception ex) {
-//            //выводим наиболее значимые сообщения
-//            Logger.getLogger(AccountServlet.class.getName()).log(Level.SEVERE, null, ex);
-//        } finally {
+        } catch (Exception ex) {
+            //выводим наиболее значимые сообщения
+            Logger.getLogger(AccountServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } finally { ;
 //            if (connection != null) {
 //                try {
 //                    connection.close();
 //                } catch (SQLException ex) {
 //                    Logger.getLogger(AccountServlet.class.getName()).log(Level.SEVERE, null, ex);
 //                }
-//            }
+            }
             writer.close();
 
 //        }

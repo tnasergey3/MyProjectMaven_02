@@ -25,6 +25,7 @@ public class MainServlet extends HttpServlet {
         try {
 
             HttpSession session = request.getSession(true);
+
             // Загрузка главной страницы первый раз
             if (session.getAttribute("role") == null) {
                 session.setAttribute("role", "Guest");
@@ -102,12 +103,7 @@ public class MainServlet extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
 
-        }
-        catch (Exception e) {
-            throw new ServletException(e.getMessage());
-        }
 
     }
 
