@@ -44,12 +44,12 @@
                         </select>
                     </div>
                     <%--<div class="box1">--%>
-                        <%--<select tabindex="4" class="dropdown">--%>
-                            <%--<option value="" class="label">English :</option>--%>
-                            <%--<option value="1">English</option>--%>
-                            <%--<option value="2">French</option>--%>
-                            <%--<option value="3">German</option>--%>
-                        <%--</select>--%>
+                    <%--<select tabindex="4" class="dropdown">--%>
+                    <%--<option value="" class="label">English :</option>--%>
+                    <%--<option value="1">English</option>--%>
+                    <%--<option value="2">French</option>--%>
+                    <%--<option value="3">German</option>--%>
+                    <%--</select>--%>
                     <%--</div>--%>
                     <div class="clearfix"></div>
                 </div>
@@ -73,7 +73,7 @@
                             <span class="simpleCart_total"></span></div>
                         <img src="images/cart-1.png" alt="" />
                     </a>
-                    <p><a href="#" class="simpleCart_empty">Empty Cart</a></p>
+                    <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
                     <div class="clearfix"> </div>
                 </div>
             </div>
@@ -99,7 +99,7 @@
         <div class="header">
             <div class="col-md-9 header-left">
                 <div class="top-nav">
-                    <ul class="menu"><li class="active"><a href="index.jsp">Home</a></li>
+                    <ul class="memenu skyblue" class="menu"><li class="active"><a href="index.jsp">Home</a></li>
                         <li class="grid"><a href="#">Men</a>
                             <div class="mepanel">
                                 <div class="row">
@@ -129,14 +129,14 @@
                                     <div class="col1 me-one">
                                         <h4>Popular brands</h4>
                                         <ul>
-                                            <li><a href="MenuMaintenance_Servlet?brand=Rolex">Rolex</a></li>
-                                            <li><a href="MenuMaintenance_Servlet?brand=Fastrack">Fastrack</a></li>
-                                            <li><a href="MenuMaintenance_Servlet?brand=Casio">Casio</a></li>
-                                            <li><a href="MenuMaintenance_Servlet?brand=Fossil">Fossil</a></li>
-                                            <li><a href="MenuMaintenance_Servlet?brand=Maxima">Maxima</a></li>
-                                            <li><a href="MenuMaintenance_Servlet?brand=Timex">Timex</a></li>
-                                            <li><a href="MenuMaintenance_Servlet?brand=TomTom">TomTom</a></li>
-                                            <li><a href="MenuMaintenance_Servlet?brand=Titan">Titan</a></li>
+                                            <li><a href="MenuMaintenanceServlet?brand=Rolex">Rolex</a></li>
+                                            <li><a href="MenuMaintenanceServlet?brand=Fastrack">Fastrack</a></li>
+                                            <li><a href="MenuMaintenanceServlet?brand=Casio">Casio</a></li>
+                                            <li><a href="MenuMaintenanceServlet?brand=Fossil">Fossil</a></li>
+                                            <li><a href="MenuMaintenanceServlet?brand=Maxima">Maxima</a></li>
+                                            <li><a href="MenuMaintenanceServlet?brand=Timex">Timex</a></li>
+                                            <li><a href="MenuMaintenanceServlet?brand=TomTom">TomTom</a></li>
+                                            <li><a href="MenuMaintenanceServlet?brand=Titan">Titan</a></li>
                                         </ul>
                                     </div>
                                 </div>

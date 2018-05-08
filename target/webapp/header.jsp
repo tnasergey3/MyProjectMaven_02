@@ -44,12 +44,12 @@
                         </select>
                     </div>
                     <%--<div class="box1">--%>
-                        <%--<select tabindex="4" class="dropdown">--%>
-                            <%--<option value="" class="label">English :</option>--%>
-                            <%--<option value="1">English</option>--%>
-                            <%--<option value="2">French</option>--%>
-                            <%--<option value="3">German</option>--%>
-                        <%--</select>--%>
+                    <%--<select tabindex="4" class="dropdown">--%>
+                    <%--<option value="" class="label">English :</option>--%>
+                    <%--<option value="1">English</option>--%>
+                    <%--<option value="2">French</option>--%>
+                    <%--<option value="3">German</option>--%>
+                    <%--</select>--%>
                     <%--</div>--%>
                     <div class="clearfix"></div>
                 </div>
@@ -85,7 +85,7 @@
 <!--start-logo-->
 <div class="logo">
     <a href="index.jsp"><h1>
-        Luxury Watches  </br>
+        Luxury Watches
         <%--Role: ${role}   </br>--%>
         <%--ID Session: ${pageContext.session.id} </br>--%>
         <%--userExistence_Switch: ${userExistence_Switch} </br>--%>
@@ -129,14 +129,14 @@
                                     <div class="col1 me-one">
                                         <h4>Popular brands</h4>
                                         <ul>
-                                            <li><a href="MenuMaintenance_Servlet" name="Rolex" >Rolex</a></li>
-                                            <li><a href="products.jsp" name="Fastrack" >Fastrack</a></li>
-                                            <li><a href="products.jsp" name="Casio" >Casio</a></li>
-                                            <li><a href="products.jsp" name="Fossil" >Fossil</a></li>
-                                            <li><a href="products.jsp" name="Maxima" >Maxima</a></li>
-                                            <li><a href="products.jsp" name="Timex" >Timex</a></li>
-                                            <li><a href="products.jsp" name="TomTom" >TomTom</a></li>
-                                            <li><a href="MenuMaintenance_Servlet" name="Titan" >Titan</a></li>
+                                            <li><a href="MenuMaintenanceServlet?brand=Rolex">Rolex</a></li>
+                                            <li><a href="MenuMaintenanceServlet?brand=Fastrack">Fastrack</a></li>
+                                            <li><a href="MenuMaintenanceServlet?brand=Casio">Casio</a></li>
+                                            <li><a href="MenuMaintenanceServlet?brand=Fossil">Fossil</a></li>
+                                            <li><a href="MenuMaintenanceServlet?brand=Maxima">Maxima</a></li>
+                                            <li><a href="MenuMaintenanceServlet?brand=Timex">Timex</a></li>
+                                            <li><a href="MenuMaintenanceServlet?brand=TomTom">TomTom</a></li>
+                                            <li><a href="MenuMaintenanceServlet?brand=Titan">Titan</a></li>
                                         </ul>
                                     </div>
                                 </div>

@@ -40,17 +40,12 @@ public class MainServlet extends HttpServlet {
 //                    session.setAttribute("statusLoginInHeader", "Exit");
 //                    request.getRequestDispatcher("/checkout.jsp").forward(request, response);
 //                }
-
-
             }
 
         }
         catch (Exception e) {
             throw new ServletException(e.getMessage());
         }
-
-
-
 
 //        PrintWriter writer = response.getWriter();
 
@@ -99,11 +94,9 @@ public class MainServlet extends HttpServlet {
 //
 //        writer.close();
 
-
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 
     }
 

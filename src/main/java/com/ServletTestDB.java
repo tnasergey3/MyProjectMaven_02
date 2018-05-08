@@ -50,7 +50,8 @@ public class ServletTestDB extends HttpServlet {
                 Statement statement = null;
                 statement = connection.createStatement();
 
-                String query = "SELECT listUsers_Email FROM ListUsers WHERE listUsers_Email = 'admin'";
+                //String query = "SELECT listUsers_Email FROM ListUsers WHERE listUsers_Email = 'admin'";
+                String query = "SELECT Product.product_name FROM Product WHERE Product.brand = (SELECT Brand.brand_id FROM Brand WHERE Brand.brand_name = 'Rolex')";
                 //String query = "SELECT listUsers_Email FROM ListUsers";
                 //Выполним запрос
                 ResultSet result1 = statement.executeQuery(query);

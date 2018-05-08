@@ -1,4 +1,11 @@
-<%--
+<%@ page import="java.util.logging.Logger" %>
+<%@ page import="com.AccountServlet" %>
+<%@ page import="java.util.logging.Level" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="java.io.PrintWriter" %>
+<%@ page import="java.util.Vector" %>
+<%@ page import="com.Product" %>
+<%@ page import="java.util.Enumeration" %><%--
   Created by IntelliJ IDEA.
   User: user
   Date: 28.11.2017
@@ -6,6 +13,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%
+    Vector listProducts = (Vector) request.getAttribute("vector");
+
+//....
+%>
 
 <%@ include file = "header.jsp" %>
 
@@ -31,7 +44,7 @@
                         <div class="product-main simpleCart_shelfItem">
                             <a href="single.jsp" class="mask"><img class="img-responsive zoom-img" src="images/p-1.png" alt="" /></a>
                             <div class="product-bottom">
-                                <h3>Smart Watches</h3>
+                                <h3>123456</h3>
                                 <p>Explore Now</p>
                                 <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$ 329</span></h4>
                             </div>
@@ -117,7 +130,7 @@
                         <h4>Catogories</h4>
                         <div class="row1 scroll-pane">
                             <div class="col col-4">
-                                <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>All products</label>
+                                <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>All </label>
                             </div>
                             <div class="col col-4">
                                 <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Women Watches</label>
@@ -197,3 +210,4 @@
 <!--product-end-->
 
 <%@ include file = "footer.jsp" %>
+
