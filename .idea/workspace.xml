@@ -6,11 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0178a6c2-60de-4bbc-880a-ec39d554cc42" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/header.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/header.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/products.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/products.jsp" />
-    </list>
+    <list default="true" id="0178a6c2-60de-4bbc-880a-ec39d554cc42" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -234,7 +230,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="361" />
     <option name="y" value="-13" />
     <option name="width" value="1291" />
@@ -675,7 +671,7 @@
       <workItem from="1525676304003" duration="857000" />
       <workItem from="1525818497747" duration="5028000" />
       <workItem from="1526035012225" duration="577000" />
-      <workItem from="1526176520944" duration="8517000" />
+      <workItem from="1526176520944" duration="8523000" />
     </task>
     <task id="LOCAL-00001" summary="18.12.2017">
       <created>1513559324776</created>
@@ -874,7 +870,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="290424000" />
+    <option name="totallyTimeSpent" value="290430000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -886,7 +882,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1176" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
