@@ -61,10 +61,10 @@
                             <div class="product-bottom">
                                 <h3> <%= listProducts.get(0).product_name %> </h3>
                                 <p>Explore Now</p>
-                                <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$ 55555555555</span></h4>
+                                <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$ <%= listProducts.get(0).product_price %></span></h4>
                             </div>
                             <div class="srch srch1">
-                                <span>-50%</span>
+                                <span><%= listProducts.get(0).discount %> %</span>
                             </div>
                         </div>
                     </div>
@@ -72,12 +72,12 @@
                         <div class="product-main simpleCart_shelfItem">
                             <a href="single.jsp" class="mask"><img class="img-responsive zoom-img" src="images/p-2.png" alt="" /></a>
                             <div class="product-bottom">
-                                <h3>Smart Watches</h3>
+                                <h3><%= listProducts.get(1).product_name %></h3>
                                 <p>Explore Now</p>
-                                <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$ 329</span></h4>
+                                <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$ <%= listProducts.get(1).product_price %></span></h4>
                             </div>
                             <div class="srch srch1">
-                                <span>-50%</span>
+                                <span><%= listProducts.get(1).discount %> %</span>
                             </div>
                         </div>
                     </div>
@@ -85,12 +85,12 @@
                         <div class="product-main simpleCart_shelfItem">
                             <a href="single.jsp" class="mask"><img class="img-responsive zoom-img" src="images/p-3.png" alt="" /></a>
                             <div class="product-bottom">
-                                <h3>Smart Watches</h3>
+                                <h3><%= listProducts.get(2).product_name %></h3>
                                 <p>Explore Now</p>
-                                <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$ 329</span></h4>
+                                <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$ <%= listProducts.get(2).product_price %></span></h4>
                             </div>
                             <div class="srch srch1">
-                                <span>-50%</span>
+                                <span><%= listProducts.get(2).discount %> %</span>
                             </div>
                         </div>
                     </div>
@@ -101,12 +101,12 @@
                         <div class="product-main simpleCart_shelfItem">
                             <a href="single.jsp" class="mask"><img class="img-responsive zoom-img" src="images/p-4.png" alt="" /></a>
                             <div class="product-bottom">
-                                <h3>Smart Watches</h3>
+                                <h3><%= listProducts.get(3).product_name %></h3>
                                 <p>Explore Now</p>
-                                <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$ 329</span></h4>
+                                <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$ <%= listProducts.get(3).product_price %></span></h4>
                             </div>
                             <div class="srch srch1">
-                                <span>-50%</span>
+                                <span><%= listProducts.get(3).discount %> %</span>
                             </div>
                         </div>
                     </div>
@@ -114,9 +114,9 @@
                         <div class="product-main simpleCart_shelfItem">
                             <a href="single.jsp" class="mask"><img class="img-responsive zoom-img" src="images/p-5.png" alt="" /></a>
                             <div class="product-bottom">
-                                <h3>Smart Watches</h3>
+                                <h3><%= listProducts.get(4).product_name %></h3>
                                 <p>Explore Now</p>
-                                <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$ 329</span></h4>
+                                <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$ <%= listProducts.get(4).product_price %></span></h4>
                             </div>
                             <div class="srch srch1">
                                 <span>-50%</span>
@@ -127,12 +127,12 @@
                         <div class="product-main simpleCart_shelfItem">
                             <a href="single.jsp" class="mask"><img class="img-responsive zoom-img" src="images/p-6.png" alt="" /></a>
                             <div class="product-bottom">
-                                <h3>Smart Watches</h3>
+                                <h3><%= listProducts.get(5).product_name %></h3>
                                 <p>Explore Now</p>
-                                <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$ 329</span></h4>
+                                <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$ <%= listProducts.get(5).product_price %></span></h4>
                             </div>
                             <div class="srch srch1">
-                                <span>-50%</span>
+                                <span><%= listProducts.get(5).discount %> %</span>
                             </div>
                         </div>
                     </div>

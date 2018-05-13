@@ -172,7 +172,7 @@
                                         <h4>Popular brands</h4>
                                         <ul>
                                             <li><a href="products.jsp">Rolex</a></li>
-                                            <li><a href="products.jsp">Fastrack</a></li>
+                                            <li><a href="products.jsp">Cartier</a></li>
                                             <li><a href="products.jsp">Casio</a></li>
                                             <li><a href="products.jsp">Fossil</a></li>
                                             <li><a href="products.jsp">Maxima</a></li>
