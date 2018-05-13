@@ -9,7 +9,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.List;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,7 +26,8 @@ public class MenuMaintenanceServlet extends HttpServlet {
         PrintWriter writer = response.getWriter();
         //response.setContentType("text/plain");
         response.setContentType("text/html");
-        Vector listProducts = new Vector();
+        //Vector listProducts = new Vector();
+        List<Product> listProducts = new ArrayList<Product>();
 
         HttpSession session = request.getSession(true);
         String brandSt = request.getParameter("brand");
@@ -75,15 +78,11 @@ public class MenuMaintenanceServlet extends HttpServlet {
                 prod.product_picture03 = result1.getString("product_picture03");
 
                 listProducts.add(prod);
-                session.setAttribute("vector", listProducts);
-
-//                writer.println("product_id = " + result1.getString(1));
-//                writer.println("product_name = " + result1.getString(2));
-//                writer.println("category = " + result1.getString("category"));
+                request.setAttribute("listProducts", listProducts);
             }
 
-            //writer.println("<img src=\"" + prod.product_picture01 + "\" alt=\"lorem\">");
             request.getRequestDispatcher("/products.jsp").forward(request, response);
+            //request.getRequestDispatcher("/test.jsp").forward(request, response);
 
 
         } catch (Exception ex) {

@@ -4,7 +4,10 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="java.util.Vector" %>
-<%@ page import="com.Product" %><%--
+<%@ page import="com.Product" %>
+<%@ page import="java.util.Enumeration" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: user
   Date: 28.11.2017
@@ -14,7 +17,21 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
-    Vector listProducts = (Vector) session.getAttribute("vector");
+    List<Product> listProducts = (ArrayList<Product>)request.getAttribute("listProducts");
+
+//    for(Product listProduct : listProducts)
+//    {
+//        out.print("Name: " + listProduct.product_name);
+//        out.print("<br/>");
+////        out.print("Name: " + student.getName());
+////        out.print("<br/>");
+////        out.print("Age: " + student.getAge());
+//
+//
+//        out.print("<br/>");
+//    }
+//    out.print(listProducts.get(0).product_name);
+
 //....
 %>
 
@@ -42,9 +59,9 @@
                         <div class="product-main simpleCart_shelfItem">
                             <a href="single.jsp" class="mask"><img class="img-responsive zoom-img" src="images/p-1.png" alt="" /></a>
                             <div class="product-bottom">
-                                <h3>Smart Watches</h3>
+                                <h3> <%= listProducts.get(0).product_name %> </h3>
                                 <p>Explore Now</p>
-                                <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$ 329</span></h4>
+                                <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$ <%= listProducts.get(0).product_price %></span></h4>
                             </div>
                             <div class="srch srch1">
                                 <span>-50%</span>
