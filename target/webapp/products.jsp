@@ -61,7 +61,7 @@
                             <div class="product-bottom">
                                 <h3> <%= listProducts.get(0).product_name %> </h3>
                                 <p>Explore Now</p>
-                                <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$ <%= listProducts.get(0).product_price %></span></h4>
+                                <h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">$ 55555555555</span></h4>
                             </div>
                             <div class="srch srch1">
                                 <span>-50%</span>
