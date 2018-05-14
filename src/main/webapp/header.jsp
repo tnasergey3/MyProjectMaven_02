@@ -130,7 +130,7 @@
                                         <h4>Popular brands</h4>
                                         <ul>
                                             <li><a href="MenuMaintenanceServlet?brand=Rolex">Rolex</a></li>
-                                            <li><a href="MenuMaintenanceServlet?brand=Fastrack">Fastrack</a></li>
+                                            <li><a href="MenuMaintenanceServlet?brand=Cartier">Cartier</a></li>
                                             <li><a href="MenuMaintenanceServlet?brand=Casio">Casio</a></li>
                                             <li><a href="MenuMaintenanceServlet?brand=Fossil">Fossil</a></li>
                                             <li><a href="MenuMaintenanceServlet?brand=Maxima">Maxima</a></li>
