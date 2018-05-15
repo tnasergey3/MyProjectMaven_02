@@ -18,21 +18,6 @@
 
 <%
     List<Product> listProducts = (ArrayList<Product>)request.getAttribute("listProducts");
-
-//    for(Product listProduct : listProducts)
-//    {
-//        out.print("Name: " + listProduct.product_name);
-//        out.print("<br/>");
-////        out.print("Name: " + student.getName());
-////        out.print("<br/>");
-////        out.print("Age: " + student.getAge());
-//
-//
-//        out.print("<br/>");
-//    }
-//    out.print(listProducts.get(0).product_name);
-
-//....
 %>
 
 <%@ include file = "header.jsp" %>
@@ -57,7 +42,7 @@
                 <div class="product-one">
                     <div class="col-md-4 product-left p-left">
                         <div class="product-main simpleCart_shelfItem">
-                            <a href="single.jsp" class="mask"><img class="img-responsive zoom-img" src="images/p-1.png" alt="" /></a>
+                            <a href="single.jsp?idProduct=<%= listProducts.get(0).product_id %>" class="mask"><img class="img-responsive zoom-img" src="<%= listProducts.get(0).product_picture01 %>" alt="" /></a>
                             <div class="product-bottom">
                                 <h3> <%= listProducts.get(0).product_name %> </h3>
                                 <p>Explore Now</p>
@@ -70,7 +55,7 @@
                     </div>
                     <div class="col-md-4 product-left p-left">
                         <div class="product-main simpleCart_shelfItem">
-                            <a href="single.jsp" class="mask"><img class="img-responsive zoom-img" src="images/p-2.png" alt="" /></a>
+                            <a href="single.jsp" class="mask"><img class="img-responsive zoom-img" src="<%= listProducts.get(1).product_picture01 %>" alt="" /></a>
                             <div class="product-bottom">
                                 <h3><%= listProducts.get(1).product_name %></h3>
                                 <p>Explore Now</p>
@@ -83,7 +68,7 @@
                     </div>
                     <div class="col-md-4 product-left p-left">
                         <div class="product-main simpleCart_shelfItem">
-                            <a href="single.jsp" class="mask"><img class="img-responsive zoom-img" src="images/p-3.png" alt="" /></a>
+                            <a href="single.jsp" class="mask"><img class="img-responsive zoom-img" src="<%= listProducts.get(2).product_picture01 %>" alt="" /></a>
                             <div class="product-bottom">
                                 <h3><%= listProducts.get(2).product_name %></h3>
                                 <p>Explore Now</p>
@@ -99,7 +84,7 @@
                 <div class="product-one">
                     <div class="col-md-4 product-left p-left">
                         <div class="product-main simpleCart_shelfItem">
-                            <a href="single.jsp" class="mask"><img class="img-responsive zoom-img" src="images/p-4.png" alt="" /></a>
+                            <a href="single.jsp" class="mask"><img class="img-responsive zoom-img" src="<%= listProducts.get(3).product_picture01 %>" alt="" /></a>
                             <div class="product-bottom">
                                 <h3><%= listProducts.get(3).product_name %></h3>
                                 <p>Explore Now</p>
@@ -112,7 +97,7 @@
                     </div>
                     <div class="col-md-4 product-left p-left">
                         <div class="product-main simpleCart_shelfItem">
-                            <a href="single.jsp" class="mask"><img class="img-responsive zoom-img" src="images/p-5.png" alt="" /></a>
+                            <a href="single.jsp" class="mask"><img class="img-responsive zoom-img" src="<%= listProducts.get(4).product_picture01 %>" alt="" /></a>
                             <div class="product-bottom">
                                 <h3><%= listProducts.get(4).product_name %></h3>
                                 <p>Explore Now</p>
@@ -125,7 +110,7 @@
                     </div>
                     <div class="col-md-4 product-left p-left">
                         <div class="product-main simpleCart_shelfItem">
-                            <a href="single.jsp" class="mask"><img class="img-responsive zoom-img" src="images/p-6.png" alt="" /></a>
+                            <a href="single.jsp" class="mask"><img class="img-responsive zoom-img" src="<%= listProducts.get(5).product_picture01 %>" alt="" /></a>
                             <div class="product-bottom">
                                 <h3><%= listProducts.get(5).product_name %></h3>
                                 <p>Explore Now</p>

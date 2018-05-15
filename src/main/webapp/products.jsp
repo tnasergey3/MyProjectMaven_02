@@ -42,7 +42,7 @@
                 <div class="product-one">
                     <div class="col-md-4 product-left p-left">
                         <div class="product-main simpleCart_shelfItem">
-                            <a href="single.jsp" class="mask"><img class="img-responsive zoom-img" src="<%= listProducts.get(0).product_picture01 %>" alt="" /></a>
+                            <a href="single.jsp?idProduct=<%= listProducts.get(0).product_id %>" class="mask"><img class="img-responsive zoom-img" src="<%= listProducts.get(0).product_picture01 %>" alt="" /></a>
                             <div class="product-bottom">
                                 <h3> <%= listProducts.get(0).product_name %> </h3>
                                 <p>Explore Now</p>
