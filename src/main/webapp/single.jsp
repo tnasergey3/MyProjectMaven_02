@@ -102,14 +102,14 @@
                     <div class="col-md-5 single-top-left">
                         <div class="flexslider">
                             <ul class="slides">
-                                <li data-thumb="images/s-1.jpg">
-                                    <div class="thumb-image"> <img src="images/s-1.jpg" data-imagezoom="true" class="img-responsive" alt=""/> </div>
+                                <li data-thumb="<%= prod_single.product_picture01 %>">
+                                    <div class="thumb-image"> <img src="<%= prod_single.product_picture01 %>" data-imagezoom="true" class="img-responsive" alt=""/> </div>
                                 </li>
-                                <li data-thumb="images/s-2.jpg">
-                                    <div class="thumb-image"> <img src="images/s-2.jpg" data-imagezoom="true" class="img-responsive" alt=""/> </div>
+                                <li data-thumb="<%= prod_single.product_picture02 %>">
+                                    <div class="thumb-image"> <img src="<%= prod_single.product_picture02 %>" data-imagezoom="true" class="img-responsive" alt=""/> </div>
                                 </li>
-                                <li data-thumb="images/s-3.jpg">
-                                    <div class="thumb-image"> <img src="images/s-3.jpg" data-imagezoom="true" class="img-responsive" alt=""/> </div>
+                                <li data-thumb="<%= prod_single.product_picture03 %>">
+                                    <div class="thumb-image"> <img src="<%= prod_single.product_picture03 %>" data-imagezoom="true" class="img-responsive" alt=""/> </div>
                                 </li>
                             </ul>
                         </div>
@@ -146,7 +146,7 @@
                                 <div class="clearfix"> </div>
                             </div>
 
-                            <h5 class="item_price">$ 95.00</h5>
+                            <h5 class="item_price">$ <%= prod_single.product_price %></h5>
                             <p><%= prod_single.product_description_short %></p>
                             <div class="available">
                                 <ul>
@@ -160,21 +160,18 @@
                                     <li class="size-in">Size<select>
                                         <option>Large</option>
                                         <option>Medium</option>
-                                        <option>small</option>
-                                        <option>Large</option>
-                                        <option>small</option>
+                                        <option>Small</option>
                                     </select></li>
                                     <div class="clearfix"> </div>
                                 </ul>
                             </div>
                             <ul class="tag-men">
                                 <li><span>TAG</span>
-                                    <span class="women1">: Women,</span></li>
+                                    <span class="women1"><%= prod_single.product_tag %></span></li>
                                 <li><span>SKU</span>
-                                    <span class="women1">: CK09</span></li>
+                                    <span class="women1"><%= prod_single.product_sku %></span></li>
                             </ul>
-                            <a href="#" class="add-cart item_add">ADD TO CART</a>
-
+                            <a href="AddToCardServlet?idProduct=<%= prod_single.product_id %>&img01Product=<%= prod_single.product_picture01 %>&priceProduct=<%= prod_single.product_price %>&nameProduct=<%= prod_single.product_name %>" class="add-cart item_add" >ADD TO CART</a>
                         </div>
                     </div>
                     <div class="clearfix"> </div>
@@ -194,7 +191,7 @@
                                 <li class="subitem3"><a href="#">Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes </a></li>
                             </ul>
                         </li>
-                        <li class="item3"><a href="#"><img src="images/arrow.png" alt="">Reviews (10)</a>
+                        <li class="item3"><a href="#"><img src="images/arrow.png" alt="">Reviews</a>
                             <ul>
                                 <li class="subitem1"><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</a></li>
                                 <li class="subitem2"><a href="#"> Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore</a></li>

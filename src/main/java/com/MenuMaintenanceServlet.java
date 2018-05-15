@@ -31,7 +31,6 @@ public class MenuMaintenanceServlet extends HttpServlet {
 
         HttpSession session = request.getSession(true);
         String brandSt = request.getParameter("brand");
-
         // Connect to database
         String hostName = "sqlserverdb0.database.windows.net";
         String dbName = "luxuryWatchesDB";
@@ -97,6 +96,7 @@ public class MenuMaintenanceServlet extends HttpServlet {
                 }
             }
         }
+
         writer.close();
 
     }
