@@ -7,7 +7,7 @@
 --%>
 <%
 
-
+// select count(shoppingbag_id) from Shoppingbag
 
 %>
 
