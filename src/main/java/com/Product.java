@@ -22,6 +22,4 @@ public class Product {
 //        return this.product_name;
 //    }
 
-
-
 }

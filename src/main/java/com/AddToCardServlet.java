@@ -29,16 +29,18 @@ public class AddToCardServlet extends HttpServlet {
         String priceProduct = request.getParameter("priceProduct");
         String nameProduct = request.getParameter("nameProduct");
         Date dateOfPurchase = new Date();
-        String roleUser_str = request.getParameter("roleUser");
+
+        HttpSession session = request.getSession(true);
+        String roleUser_str = (String) session.getAttribute("role");
 
         PrintWriter writer = response.getWriter();
         response.setContentType("text/html");
-        HttpSession session = request.getSession(true);
 
 //        writer.println("idProduct = " + idProduct);
 //        writer.println("img01Product = " + img01Product);
 //        writer.println("priceProduct = " + priceProduct);
 //        writer.println("nameProduct = " + nameProduct);
+             writer.println("roleUser_str = " + roleUser_str);
 
 
         // Connect to database
@@ -62,8 +64,8 @@ public class AddToCardServlet extends HttpServlet {
 //            String query = "INSERT INTO Purchase (purchase_date, client, status, product01_id, product01_name, product01_price, product01_img01) VALUES('"
 //                    + dateOfPurchase.toString() + "', 3, 'status01', " + idProduct + ", '" + nameProduct + "', " + priceProduct + ", '" + img01Product + "')";
 
-            String query = "INSERT INTO Shoppingbag (client, product01_id, product01_name, product01_price, product01_img01) VALUES("
-                    + "(SELECT listUsers_id FROM ListUsers WHERE listUsers_FirstName = '" + roleUser_str + "'), " + idProduct + ", '" + nameProduct + "', " + priceProduct + ", '" + img01Product + "')";
+            String query = "INSERT INTO Shoppingbag (client, product_id, product_name, product_price, product_img01) VALUES("
+                    + "(SELECT listUsers_id FROM ListUsers WHERE listUsers_Email = '" + roleUser_str + "'), " + idProduct + ", '" + nameProduct + "', " + priceProduct + ", '" + img01Product + "')";
             statement.executeUpdate(query);
 
             //result это указатель на первую строку с выборки
