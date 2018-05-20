@@ -86,8 +86,8 @@
 <div class="logo">
     <a href="index.jsp"><h1>
         Luxury Watches
-        <%--Role: ${role}   </br>--%>
-        <%--ID Session: ${pageContext.session.id} </br>--%>
+        Role: ${role}   </br>
+        ID Session: ${pageContext.session.id} </br>
         <%--userExistence_Switch: ${userExistence_Switch} </br>--%>
         <%--userExistence: ${userExistence} </br>--%>
     </h1></a>
