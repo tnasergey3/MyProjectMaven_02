@@ -40,7 +40,7 @@ public class AddToCardServlet extends HttpServlet {
 //        writer.println("img01Product = " + img01Product);
 //        writer.println("priceProduct = " + priceProduct);
 //        writer.println("nameProduct = " + nameProduct);
-             writer.println("roleUser_str = " + roleUser_str);
+//        writer.println("roleUser_str = " + roleUser_str);
 
 
         // Connect to database

@@ -1491,7 +1491,7 @@ a.mask {
 .ckeckout{
 	padding:6em 0px;
 }
-.close1,.close2,.close3{
+.close0, .close1, .close2, .close3, .close4, .close5 {
 	background: url('../images/close.png') no-repeat 0px 0px;
 	cursor: pointer;
 	width: 28px;
@@ -1517,7 +1517,7 @@ ul.unit li {
     width: 25%;
     float: left;
 }
-ul.cart-header li p,ul.cart-header1 li p,ul.cart-header2 li p{
+ul.cart-header0 li p, ul.cart-header1 li p, ul.cart-header2 li p, ul.cart-header3 li p, ul.cart-header4 li p, ul.cart-header5 li p{
     font-size: 11px;
     line-height: 1.6em;
     color: #999;
@@ -1529,22 +1529,22 @@ ul.unit li span{
 	font-size:1.2em;
 	text-align:center;
 }
-ul.cart-header, ul.cart-header1 {
+ul.cart-header0, ul.cart-header1, ul.cart-header2, ul.cart-header3, ul.cart-header4, ul.cart-header5 {
     padding: 1em;
     background: #f8f8f8;
     border-bottom: 1px solid #181b2a;
     margin-bottom: 20px;
 }
-ul.cart-header2{
+ul.cart-header0, ul.cart-header1, ul.cart-header2, ul.cart-header3, ul.cart-header4, ul.cart-header5{
 	padding:1em;
 	background:#f8f8f8;
 }
-ul.cart-header li, ul.cart-header1 li, ul.cart-header2 li {
+ul.cart-header0 li, ul.cart-header1 li, ul.cart-header2 li, ul.cart-header3 li, ul.cart-header4 li, ul.cart-header5 li {
     display: inline-block;
     width: 25%;
     float: left;
 }
-ul.cart-header li span,ul.cart-header1 li span,ul.cart-header2 li span{
+ul.cart-header0 li span, ul.cart-header1 li span, ul.cart-header2 li span, ul.cart-header3 li span, ul.cart-header4 li span, ul.cart-header5 li span{
 	margin: 2.3em 0 0;
 	display: block;
 	color:#000;
@@ -1558,7 +1558,7 @@ span.cost {
 .in-check {
 	margin-top: 2%;
 }
-.cart-header,.cart-header1,.cart-header2{
+.cart-header0, .cart-header1, .cart-header2, .cart-header3, .cart-header4, .cart-header5{
 	position:relative;
 }
 .cart-items {
@@ -2314,7 +2314,7 @@ a.add-cart {
 ul.unit li span {
     font-size: 1.1em;
 }
-ul.cart-header li span, ul.cart-header1 li span, ul.cart-header2 li span {
+ul.cart-header0 li span, ul.cart-header1 li span, ul.cart-header2 li span, ul.cart-header3 li span, ul.cart-header4 li span, ul.cart-header5 li span {
     font-size: 1.1em;
 }
 .label {
@@ -2495,7 +2495,7 @@ h3.ghj {
 .radio {
     margin: 0;
 }
-.close1, .close2, .close3 {
+.close0, .close1, .close2, .close3, .close4, .close5 {
     width: 20px;
     height: 20px;
     top: 5px;
@@ -2512,13 +2512,13 @@ span.cost {
     font-size: 1.14em !important;
     margin-top: 2.6em !important;
 }
-ul.cart-header li p, ul.cart-header1 li p, ul.cart-header2 li p {
+ul.cart-header0 li p, ul.cart-header1 li p, ul.cart-header2 li p, ul.cart-header3 li p, ul.cart-header4 li p, ul.cart-header5 li p {
     font-size: 10px;
 }
 ul.unit li span {
     font-size: 14px;
 }
-ul.cart-header li span, ul.cart-header1 li span, ul.cart-header2 li span {
+ul.cart-header0 li span, ul.cart-header1 li span, ul.cart-header2 li span, ul.cart-header3 li span, ul.cart-header4 li span, ul.cart-header5 li span {
     font-size: 13px;
 }
 .well {
@@ -2990,7 +2990,7 @@ h4.head {
     padding: 7px 12px;
     font-size: 15px;
 }
-ul.cart-header, ul.cart-header1 {
+ul.cart-header0, ul.cart-header1 {
     padding: 5px;
     margin-bottom: 10px;
 }
@@ -3007,11 +3007,11 @@ ul.cart-header, ul.cart-header1 {
 ul.unit li span {
     font-size: 12px;
 }
-ul.cart-header li span, ul.cart-header1 li span, ul.cart-header2 li span {
+ul.cart-header0 li span, ul.cart-header1 li span, ul.cart-header2 li span, ul.cart-header3 li span, ul.cart-header4 li span, ul.cart-header5 li span {
     font-size: 11px;
     text-align: center;
 }
-.close1, .close2, .close3 {
+.close0, .close1, .close2, .close3, .close4, .close5 {
     width: 17px;
     height: 17px;
 }
@@ -3037,10 +3037,10 @@ span.cost {
     font-size: 1em !important;
     margin-top: 2.7em !important;
 }
-ul.cart-header li, ul.cart-header1 li, ul.cart-header2 li {
+ul.cart-header0 li, ul.cart-header1 li, ul.cart-header2 li, ul.cart-header3 li, ul.cart-header4 li, ul.cart-header5 li {
     width: 25%;
 }
-ul.cart-header li p, ul.cart-header1 li p, ul.cart-header2 li p {
+ul.cart-header0 li p, ul.cart-header1 li p, ul.cart-header2 li p, ul.cart-header3 li p, ul.cart-header4 li p, ul.cart-header5 li p {
     font-size: 8px;
 }
 h3.ghj {

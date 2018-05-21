@@ -47,18 +47,18 @@
 //            }
 
         // Чтение из базы содержимого корзины
-        String query2 = "SELECT * FROM Shoppingbag";
-        ResultSet result2 = statement.executeQuery(query2);
+        String query333 = "SELECT * FROM Shoppingbag WHERE client = (SELECT listUsers_id FROM ListUsers WHERE listUsers_Email = " + "'" + roleUser_str + "'" + ")";
+        ResultSet result11 = statement.executeQuery(query333);
 
-        while (result2.next()) {
+        while (result11.next()) {
 
             ProductInShoppingbag prodShoppingbag = new ProductInShoppingbag();
-            prodShoppingbag.shoppingbag_id = Integer.parseInt(result2.getString("shoppingbag_id"));
-            prodShoppingbag.client = Integer.parseInt(result2.getString("client"));
-            prodShoppingbag.product_id = Integer.parseInt(result2.getString("product_id"));
-            prodShoppingbag.product_name = result2.getString("product_name");
-            prodShoppingbag.product_price = Integer.parseInt(result2.getString("product_price"));
-            prodShoppingbag.product_img01 = result2.getString("product_img01");
+            prodShoppingbag.shoppingbag_id = Integer.parseInt(result11.getString("shoppingbag_id"));
+            prodShoppingbag.client = Integer.parseInt(result11.getString("client"));
+            prodShoppingbag.product_id = Integer.parseInt(result11.getString("product_id"));
+            prodShoppingbag.product_name = result11.getString("product_name");
+            prodShoppingbag.product_price = Integer.parseInt(result11.getString("product_price"));
+            prodShoppingbag.product_img01 = result11.getString("product_img01");
 
             listProductsInShoppingbag.add(prodShoppingbag);
 //            request.setAttribute("listProducts", listProducts);
@@ -104,30 +104,78 @@
         <div class="ckeckout-top">
             <div class="cart-items">
                 <h3>My Shopping Bag</h3>
-                <script>$(document).ready(function(c) {
-                    $('.close1').on('click', function(c){
-                        $('.cart-header').fadeOut('slow', function(c){
-                            $('.cart-header').remove();
+                <%
+                    for (int i = 0; i < listProductsInShoppingbag.size(); i++){  %>
+                    <script>$(document).ready(function(c) {
+                        $('.close<%= i %>').on('click', function(c){
+                            $('.cart-header<%= i %>').fadeOut('slow', function(c){
+                                $('.cart-header<%= i %>').remove();
+                            });
+                            DeleteRow();
                         });
                     });
-                });
-                </script>
-                <script>$(document).ready(function(c) {
-                    $('.close2').on('click', function(c){
-                        $('.cart-header1').fadeOut('slow', function(c){
-                            $('.cart-header1').remove();
-                        });
-                    });
-                });
-                </script>
-                <script>$(document).ready(function(c) {
-                    $('.close3').on('click', function(c){
-                        $('.cart-header2').fadeOut('slow', function(c){
-                            $('.cart-header2').remove();
-                        });
-                    });
-                });
-                </script>
+                    function DeleteRow() {
+                        <%
+                                // удаление с таблицы Корзины выбраного товара
+                                try {
+//                                            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                                      connection = DriverManager.getConnection(url);//
+                                      Statement statement = null;
+                                      statement = connection.createStatement();
+
+                                    // Deleting data
+                                    String query = "DELETE FROM Shoppingbag WHERE Shoppingbag.product_id = " + listProductsInShoppingbag.get(i).product_id;
+                                    ResultSet result11 = statement.executeQuery(query);
+
+                                } catch (Exception ex) {
+                                    //выводим наиболее значимые сообщения
+                                    Logger.getLogger(AccountServlet.class.getName()).log(Level.SEVERE, null, ex);
+                                } finally {
+                                    if (connection != null) {
+                                        try {
+                                            connection.close();
+                                        } catch (SQLException ex) {
+                                            Logger.getLogger(AccountServlet.class.getName()).log(Level.SEVERE, null, ex);
+                                        }
+                                    }
+                                }
+                                //
+                        %>
+                    }
+                    </script>
+                <%  } %>
+                <%--<script>$(document).ready(function(c) {--%>
+                    <%--$('.close0').on('click', function(c){--%>
+                        <%--$('.cart-header0').fadeOut('slow', function(c){--%>
+                            <%--$('.cart-header0').remove();--%>
+                        <%--});--%>
+                    <%--});--%>
+                <%--});--%>
+                <%--</script>--%>
+                <%--<script>$(document).ready(function(c) {--%>
+                    <%--$('.close1').on('click', function(c){--%>
+                        <%--$('.cart-header1').fadeOut('slow', function(c){--%>
+                            <%--$('.cart-header1').remove();--%>
+                        <%--});--%>
+                    <%--});--%>
+                <%--});--%>
+                <%--</script>--%>
+                <%--<script>$(document).ready(function(c) {--%>
+                    <%--$('.close2').on('click', function(c){--%>
+                        <%--$('.cart-header2').fadeOut('slow', function(c){--%>
+                            <%--$('.cart-header2').remove();--%>
+                        <%--});--%>
+                    <%--});--%>
+                <%--});--%>
+                <%--</script>--%>
+                <%--<script>$(document).ready(function(c) {--%>
+                    <%--$('.close3').on('click', function(c){--%>
+                        <%--$('.cart-header3').fadeOut('slow', function(c){--%>
+                            <%--$('.cart-header3').remove();--%>
+                        <%--});--%>
+                    <%--});--%>
+                <%--});--%>
+                <%--</script>--%>
 
                 <div class="in-check" >
                     <ul class="unit">
@@ -139,21 +187,33 @@
                         <div class="clearfix"> </div>
                     </ul>
                     <%
-                        //int countProductInShoppingbag_int = Integer.parseInt(countProductInShoppingbag);
-                        for (int i = 0; i < listProductsInShoppingbag.size(); i++){
-                            out.println("<ul class=\"cart-header\">");
-                            out.println("<div class=\"close1\"> </div>");
-                            out.println("<li class=\"ring-in\"><a href=\"single.jsp\" ><img src=\""); %> <%= listProductsInShoppingbag.get(i).product_img01 %>
-                    <%      out.println("\" class=\"img-responsive\" alt=\"\"></a></li>");
-                            out.println("<li><span class=\"name\">"); %> <%= listProductsInShoppingbag.get(i).product_name %>
-                    <%      out.println("</span></li>");
-                            out.println("<li><span class=\"cost\">$ 290.00</span></li>");
-                            out.println("<li><span>Free</span>");
-                            out.println("<p>Delivered in 2-3 weeks days</p></li>");
-                            out.println("<div class=\"clearfix\"> </div>");
-                            out.println("</ul>");
-                        }
-                    %>
+                        // Создание разметки корзины
+                        for (int i = 0; i < listProductsInShoppingbag.size(); i++){ %>
+                            <ul class="cart-header<%= i %>">
+                                <div class="close<%= i %>" value="123456"></div>
+                                    <li class="ring-in"><a href="single.jsp" ><img width="100px" height="100px" src=" <%= listProductsInShoppingbag.get(i).product_img01 %>" class="img-responsive" alt=""></a></li>
+                                    <li><span class="name"> <%= listProductsInShoppingbag.get(i).product_name %> </span></li>
+                                    <li><span class="cost"> $ <%= listProductsInShoppingbag.get(i).product_price %> </span></li>
+                                    <li><span>Free</span>
+                                    <p>Delivered in 2-3 weeks</p></li>
+                                <div class="clearfix"> </div>
+                            </ul>
+                    <%  }  %>
+                <%--<%--%>
+                    <%--// Создание разметки корзины--%>
+                    <%--for (int i = 0; i < listProductsInShoppingbag.size(); i++){--%>
+                        <%--out.print("<ul class=\"");  %>cart-header<%= i %>">--%>
+                <%--<%      out.print("<div class=\"");  %>close<%= i %>" value=""></div>--%>
+            <%--<%      out.println("<li class=\"ring-in\"><a href=\"single.jsp\" ><img width=\"200px\" height=\"200px\" src=\""); %> <%= listProductsInShoppingbag.get(i).product_img01 %>--%>
+            <%--<%      out.println("\" class=\"img-responsive\" alt=\"\"></a></li>");--%>
+                <%--out.print("<li><span class=\"name\">"); %> <%= listProductsInShoppingbag.get(i).product_name %> </span></li>--%>
+            <%--<%      out.print("<li><span class=\"cost\">");%> $ <%= listProductsInShoppingbag.get(i).product_price %> </span></li>--%>
+            <%--<%      out.println("<li><span>Free</span>");--%>
+                <%--out.println("<p>Delivered in 2-3 weeks</p></li>");--%>
+                <%--out.println("<div class=\"clearfix\"> </div>");--%>
+                <%--out.println("</ul>");--%>
+            <%--}--%>
+            <%--%>--%>
                     <%--<ul class="cart-header">--%>
                         <%--<div class="close1"> </div>--%>
                         <%--<li class="ring-in"><a href="single.jsp" ><img src="images/c-1.jpg" class="img-responsive" alt=""></a>--%>

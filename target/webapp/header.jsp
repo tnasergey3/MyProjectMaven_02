@@ -5,6 +5,16 @@
   Time: 04:46
   To change this template use File | Settings | File Templates.
 --%>
+<%
+    if(session.getAttribute("role") == "null") {
+        //session.invalidate();
+        session = request.getSession(true);
+        session.setAttribute("role", "Guest");
+        session.setAttribute("statusLoginInHeader", "Sign in or Create an account");
+        session.setAttribute("summPriceOfShoppingBag", "0");
+        session.setAttribute("statusOfShoppingBag", "Empty");
+    }
+%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -70,10 +80,11 @@
                 <div class="cart box_1">
                     <a href="checkout.jsp">
                         <div class="total">
-                            <span class="simpleCart_total"></span></div>
+                            <%--<span class="simpleCart_total"></span></div>--%>
+                        <span class="">$ ${ summPriceOfShoppingBag }</span></div>
                         <img src="images/cart-1.png" alt="" />
                     </a>
-                    <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+                    <p><a href="javascript:;" class="simpleCart_empty">${ statusOfShoppingBag }</a></p>
                     <div class="clearfix"> </div>
                 </div>
             </div>

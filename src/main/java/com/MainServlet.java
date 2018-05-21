@@ -30,6 +30,8 @@ public class MainServlet extends HttpServlet {
             if (session.getAttribute("role") == null) {
                 session.setAttribute("role", "Guest");
                 session.setAttribute("statusLoginInHeader", "Sign in or Create an account");
+                session.setAttribute("summPriceOfShoppingBag", "0");
+                session.setAttribute("statusOfShoppingBag", "Empty");
                 request.getRequestDispatcher("/contact.jsp").forward(request, response);
             }
              //Загрузка страницы не в первый раз

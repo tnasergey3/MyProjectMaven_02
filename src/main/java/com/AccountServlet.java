@@ -20,6 +20,7 @@ public class AccountServlet extends HttpServlet {
         String roleUser_str = request.getParameter("roleUser");
         session.setAttribute("userExistence_Switch", "on");
 
+
         if(roleUser_str != null) {
             // Connect to database
             String hostName = "sqlserverdb0.database.windows.net";

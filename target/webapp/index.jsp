@@ -17,6 +17,8 @@
   if (session.getAttribute("statusLoginInHeader") == null) {
     session.setAttribute("role", "Guest");
     session.setAttribute("statusLoginInHeader", "Sign in or Create an account");
+    session.setAttribute("summPriceOfShoppingBag", "0");
+    session.setAttribute("statusOfShoppingBag", "Empty");
     // Подключение к базе данных нет, его нужно создать
     session.setAttribute("connectToDB", "connect");
     request.getRequestDispatcher("/index.jsp").forward(request, response);
