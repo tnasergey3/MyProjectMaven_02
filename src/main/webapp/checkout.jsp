@@ -20,7 +20,6 @@
     // Количество товаров в корзине
     String countProductInShoppingbag = null;
 
-
     // Connect to database
     String hostName = "sqlserverdb0.database.windows.net";
     String dbName = "luxuryWatchesDB";
@@ -35,16 +34,6 @@
 
         Statement statement = null;
         statement = connection.createStatement();
-
-//        String query = "SELECT COUNT(shoppingbag_id) FROM Shoppingbag" ;
-//        ResultSet result1 = statement.executeQuery(query);
-//
-//        //result это указатель на первую строку с выборки
-//        //чтобы вывести данные мы будем использовать
-//        //метод next() , с помощью которого переходим к следующему элементу
-//            while (result1.next()) {
-//                countProductInShoppingbag = result1.getString(1);
-//            }
 
         // Чтение из базы содержимого корзины
         String query333 = "SELECT * FROM Shoppingbag WHERE client = (SELECT listUsers_id FROM ListUsers WHERE listUsers_Email = " + "'" + roleUser_str + "'" + ")";
@@ -61,7 +50,7 @@
             prodShoppingbag.product_img01 = result11.getString("product_img01");
 
             listProductsInShoppingbag.add(prodShoppingbag);
-//            request.setAttribute("listProducts", listProducts);
+            //request.setAttribute("listProductsInShoppingbag", listProductsInShoppingbag);
         }
 
     } catch (Exception ex) {
@@ -110,72 +99,24 @@
                         $('.close<%= i %>').on('click', function(c){
                             $('.cart-header<%= i %>').fadeOut('slow', function(c){
                                 $('.cart-header<%= i %>').remove();
+                                //alert('<%= listProductsInShoppingbag.get(i).product_name %>');
+
+                                $.ajax({
+                                    type: "POST",
+                                    url: "DeleteFromShoppingBagServlet",
+                                    data: "client_del=<%= listProductsInShoppingbag.get(i).client %>&product_id_del=<%= listProductsInShoppingbag.get(i).product_id %>",
+                                    success: function(data) {
+//                                        alert("Success");
+                                    },
+                                    error: function(data){
+//                                        alert("Not success");
+                                    }
+                                });
                             });
-                            DeleteRow();
                         });
                     });
-                    function DeleteRow() {
-                        <%
-                                // удаление с таблицы Корзины выбраного товара
-                                try {
-//                                            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-                                      connection = DriverManager.getConnection(url);//
-                                      Statement statement = null;
-                                      statement = connection.createStatement();
-
-                                    // Deleting data
-                                    String query = "DELETE FROM Shoppingbag WHERE Shoppingbag.product_id = " + listProductsInShoppingbag.get(i).product_id;
-                                    ResultSet result11 = statement.executeQuery(query);
-
-                                } catch (Exception ex) {
-                                    //выводим наиболее значимые сообщения
-                                    Logger.getLogger(AccountServlet.class.getName()).log(Level.SEVERE, null, ex);
-                                } finally {
-                                    if (connection != null) {
-                                        try {
-                                            connection.close();
-                                        } catch (SQLException ex) {
-                                            Logger.getLogger(AccountServlet.class.getName()).log(Level.SEVERE, null, ex);
-                                        }
-                                    }
-                                }
-                                //
-                        %>
-                    }
                     </script>
                 <%  } %>
-                <%--<script>$(document).ready(function(c) {--%>
-                    <%--$('.close0').on('click', function(c){--%>
-                        <%--$('.cart-header0').fadeOut('slow', function(c){--%>
-                            <%--$('.cart-header0').remove();--%>
-                        <%--});--%>
-                    <%--});--%>
-                <%--});--%>
-                <%--</script>--%>
-                <%--<script>$(document).ready(function(c) {--%>
-                    <%--$('.close1').on('click', function(c){--%>
-                        <%--$('.cart-header1').fadeOut('slow', function(c){--%>
-                            <%--$('.cart-header1').remove();--%>
-                        <%--});--%>
-                    <%--});--%>
-                <%--});--%>
-                <%--</script>--%>
-                <%--<script>$(document).ready(function(c) {--%>
-                    <%--$('.close2').on('click', function(c){--%>
-                        <%--$('.cart-header2').fadeOut('slow', function(c){--%>
-                            <%--$('.cart-header2').remove();--%>
-                        <%--});--%>
-                    <%--});--%>
-                <%--});--%>
-                <%--</script>--%>
-                <%--<script>$(document).ready(function(c) {--%>
-                    <%--$('.close3').on('click', function(c){--%>
-                        <%--$('.cart-header3').fadeOut('slow', function(c){--%>
-                            <%--$('.cart-header3').remove();--%>
-                        <%--});--%>
-                    <%--});--%>
-                <%--});--%>
-                <%--</script>--%>
 
                 <div class="in-check" >
                     <ul class="unit">

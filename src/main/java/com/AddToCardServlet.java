@@ -28,6 +28,7 @@ public class AddToCardServlet extends HttpServlet {
         String img01Product = request.getParameter("img01Product");
         String priceProduct = request.getParameter("priceProduct");
         String nameProduct = request.getParameter("nameProduct");
+        String brandProduct = request.getParameter("brandProduct");
         Date dateOfPurchase = new Date();
 
         HttpSession session = request.getSession(true);
@@ -95,7 +96,7 @@ public class AddToCardServlet extends HttpServlet {
 //                //request.setAttribute("listProducts", listProducts);
 //            }
 
-            //request.getRequestDispatcher("/checkout.jsp").forward(request, response);
+            request.getRequestDispatcher("/MenuMaintenanceServlet?brand=" + brandProduct).forward(request, response);
 
         } catch (Exception ex) {
             //выводим наиболее значимые сообщения
