@@ -19,7 +19,10 @@ public class AccountServlet extends HttpServlet {
         HttpSession session = request.getSession(true);
         String roleUser_str = request.getParameter("roleUser");
         session.setAttribute("userExistence_Switch", "on");
+        session.setAttribute("userExistence", "true");
 
+        String result1_str = null;
+        Statement statement = null;
 
         if(roleUser_str != null) {
             // Connect to database
@@ -33,30 +36,41 @@ public class AccountServlet extends HttpServlet {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             connection = DriverManager.getConnection(url);
-
-            Statement statement = null;
             statement = connection.createStatement();
 
-            session.setAttribute("userExistence", "true");
-
-            String query = "SELECT listUsers_Email FROM ListUsers where listUsers_Email = '" + roleUser_str + "'";
-            //Выполним запрос
+            // Проверка на существование пользователя в базе
+            String query = "SELECT listUsers_Email FROM ListUsers WHERE listUsers_Email = '" + roleUser_str + "'";
             ResultSet result1 = statement.executeQuery(query);
-            //result это указатель на первую строку с выборки
-            //чтобы вывести данные мы будем использовать
-            //метод next() , с помощью которого переходим к следующему элементу
+
             while (result1.next()) {
-                String result1_str = result1.getString("listUsers_Email");
-                if(result1_str.equals(roleUser_str)){
+                result1_str = result1.getString("listUsers_Email");
+            }
+
+                if(result1_str.equals(roleUser_str)){ // Проверка если пользователь существует
                     session.invalidate();
                     session = request.getSession(true);
                     session.setAttribute("role", roleUser_str);
                     session.setAttribute("statusLoginInHeader", "Exit");
                     session.setAttribute("userExistence", "true");
+
+                    // Выборка стоимости товаров в корзине конкретного пользователя
+                    query = "SELECT SUM(product_price) FROM Shoppingbag WHERE client = (SELECT listUsers_id FROM ListUsers WHERE listUsers_Email = '" + roleUser_str + "'";
+                    ResultSet result11 = statement.executeQuery(query);
+
+                    result11.first();
+                    session.setAttribute("amountProductsInShoppingBag", result1.getInt(1));
+
+                    // Выборка количества товаров в корзине конкретного пользователя
+                    query = "SELECT COUNT(product_price) FROM Shoppingbag WHERE client = (SELECT listUsers_id FROM ListUsers WHERE listUsers_Email = '" + roleUser_str + "'";
+                    result11 = statement.executeQuery(query);
+
+                    result11.first();
+                    session.setAttribute("quantityProductsInShoppingBag", result1.getString(1));
+
                 } else {
                     session.setAttribute("userExistence", "false");
                 }
-            }
+
         } catch (Exception ex) {
             //выводим наиболее значимые сообщения
             Logger.getLogger(AccountServlet.class.getName()).log(Level.SEVERE, null, ex);
@@ -77,7 +91,7 @@ public class AccountServlet extends HttpServlet {
             try {
                 HttpSession session = request.getSession(true);
 
-                // Маркер активизации запуска js-скрипта для вывода сообщенич "пользователя не существует"
+                // Маркер активизации запуска js-скрипта для вывода сообщения "пользователя не существует"
                 session.setAttribute("userExistence_Switch", "off");
 
                     if(session.getAttribute("role") != "Guest") {

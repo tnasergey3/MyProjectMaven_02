@@ -171,7 +171,7 @@
                                 <li><span>SKU</span>
                                     <span class="women1"><%= prod_single.product_sku %></span></li>
                             </ul>
-                            <a href="AddToCardServlet?idProduct=<%= prod_single.product_id %>&img01Product=<%= prod_single.product_picture01 %>&priceProduct=<%= prod_single.product_price %>&nameProduct=<%= prod_single.product_name %>" class="add-cart item_add" >ADD TO CART</a>
+                            <a href="AddToCardServlet?idProduct=<%= prod_single.product_id %>&img01Product=<%= prod_single.product_picture01 %>&priceProduct=<%= prod_single.product_price %>&nameProduct=<%= prod_single.product_name %>&brandProduct=<%= prod_single.brand %>" class="add-cart item_add" >ADD TO CART</a>
                         </div>
                     </div>
                     <div class="clearfix"> </div>

@@ -7,14 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.PrintWriter;
-
-import java.sql.Connection;
-import java.sql.Statement;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.DriverManager;
-
 
 
 @WebServlet(name = "mainServlet", urlPatterns = "/mainServlet")
@@ -23,15 +15,14 @@ public class MainServlet extends HttpServlet {
             throws ServletException, IOException {
 
         try {
-
             HttpSession session = request.getSession(true);
 
             // Загрузка главной страницы первый раз
             if (session.getAttribute("role") == null) {
                 session.setAttribute("role", "Guest");
                 session.setAttribute("statusLoginInHeader", "Sign in or Create an account");
-                session.setAttribute("summPriceOfShoppingBag", "0");
-                session.setAttribute("statusOfShoppingBag", "Empty");
+                session.setAttribute("amountProductsInShoppingBag", "0");
+                session.setAttribute("quantityProductsInShoppingBag", "0");
                 request.getRequestDispatcher("/contact.jsp").forward(request, response);
             }
              //Загрузка страницы не в первый раз
@@ -43,11 +34,17 @@ public class MainServlet extends HttpServlet {
 //                    request.getRequestDispatcher("/checkout.jsp").forward(request, response);
 //                }
             }
-
         }
         catch (Exception e) {
             throw new ServletException(e.getMessage());
         }
+    }
+
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    }
+
+}
 
 //        PrintWriter writer = response.getWriter();
 
@@ -95,11 +92,3 @@ public class MainServlet extends HttpServlet {
 //        }
 //
 //        writer.close();
-
-    }
-
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
-
-}

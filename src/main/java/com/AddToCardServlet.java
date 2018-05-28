@@ -29,6 +29,8 @@ public class AddToCardServlet extends HttpServlet {
         String priceProduct = request.getParameter("priceProduct");
         String nameProduct = request.getParameter("nameProduct");
         String brandProduct = request.getParameter("brandProduct");
+        String brandProduct_str = null;
+
         Date dateOfPurchase = new Date();
 
         HttpSession session = request.getSession(true);
@@ -56,47 +58,23 @@ public class AddToCardServlet extends HttpServlet {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             connection = DriverManager.getConnection(url);
 //            //String schema = connection.getSchema();
-//
-            Statement statement = null;
-            statement = connection.createStatement();
+
+            Statement statement = connection.createStatement();
+
+            // Select Brand
+            String query0 = "SELECT brand_name FROM Brand WHERE brand_id = " + brandProduct;
+            ResultSet resultSet = statement.executeQuery(query0);
+            while (resultSet.next())
+            {
+               brandProduct_str = resultSet.getString("brand_name");
+            }
 
             // Insert
-           //String query = "SELECT * FROM Product WHERE Product.brand = (SELECT Brand.brand_id FROM Brand WHERE Brand.brand_name = '" + brandSt + "')";
-//            String query = "INSERT INTO Purchase (purchase_date, client, status, product01_id, product01_name, product01_price, product01_img01) VALUES('"
-//                    + dateOfPurchase.toString() + "', 3, 'status01', " + idProduct + ", '" + nameProduct + "', " + priceProduct + ", '" + img01Product + "')";
-
             String query = "INSERT INTO Shoppingbag (client, product_id, product_name, product_price, product_img01) VALUES("
                     + "(SELECT listUsers_id FROM ListUsers WHERE listUsers_Email = '" + roleUser_str + "'), " + idProduct + ", '" + nameProduct + "', " + priceProduct + ", '" + img01Product + "')";
             statement.executeUpdate(query);
 
-            //result это указатель на первую строку с выборки
-            //чтобы вывести данные мы будем использовать
-            //метод next() , с помощью которого переходим к следующему элементу
-//            while (result1.next()) {
-//
-//                Product prod = new Product();
-//                prod.product_id = result1.getString("product_id");
-//                prod.product_name = result1.getString("product_name");
-//                prod.category = Integer.parseInt(result1.getString("category"));
-//                prod.brand = Integer.parseInt(result1.getString("brand"));
-//                prod.product_description_short = result1.getString("product_description_short");
-//                prod.product_description_long = result1.getString("product_description_long");
-//                prod.color = Integer.parseInt(result1.getString("color"));
-//                prod.size = result1.getString("size");
-//                prod.discount = Integer.parseInt(result1.getString("discount"));
-//                prod.product_price = Integer.parseInt(result1.getString("product_price"));
-//                prod.product_tag = result1.getString("product_tag");
-//                prod.product_review = result1.getString("product_review");
-//                prod.product_sku = result1.getString("product_sku");
-//                prod.product_picture01 = result1.getString("product_picture01");
-//                prod.product_picture02 = result1.getString("product_picture02");
-//                prod.product_picture03 = result1.getString("product_picture03");
-//
-//                //listProducts.add(prod);
-//                //request.setAttribute("listProducts", listProducts);
-//            }
-
-            request.getRequestDispatcher("/MenuMaintenanceServlet?brand=" + brandProduct).forward(request, response);
+            request.getRequestDispatcher("MenuMaintenanceServlet?brand=" + brandProduct_str).forward(request, response);
 
         } catch (Exception ex) {
             //выводим наиболее значимые сообщения
