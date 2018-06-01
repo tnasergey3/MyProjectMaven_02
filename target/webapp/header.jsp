@@ -6,13 +6,58 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%
+    //String result1_str = null;
+    session = request.getSession(true);
+
     if(session.getAttribute("role") == "null") {
         //session.invalidate();
-        session = request.getSession(true);
         session.setAttribute("role", "Guest");
         session.setAttribute("statusLoginInHeader", "Sign in or Create an account");
-        session.setAttribute("summPriceOfShoppingBag", "0");
-        session.setAttribute("statusOfShoppingBag", "Empty");
+        session.setAttribute("amountProductsInShoppingBag", "0");
+        session.setAttribute("quantityProductsInShoppingBag", "0");
+    } else {
+//        String roleUser_str = request.getParameter("role");
+
+//        // Connect to database
+//        String hostName = "sqlserverdb0.database.windows.net";
+//        String dbName = "luxuryWatchesDB";
+//        String user = "sqladmin";
+//        String password = "80978986707sS";
+//        String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
+//        Connection connection = null;
+//        Statement statement = null;
+
+//        try {
+//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+//            connection = DriverManager.getConnection(url);
+//            statement = connection.createStatement();
+//
+//            // Выборка стоимости товаров в корзине конкретного пользователя
+//            String query = "SELECT SUM(product_price) FROM Shoppingbag WHERE client = (SELECT listUsers_id FROM ListUsers WHERE listUsers_Email = '" + roleUser_str + "'";
+//            ResultSet result1 = statement.executeQuery(query);
+//
+//            result1.first();
+//            session.setAttribute("summPriceOfShoppingBag", result1.getInt(1));
+//
+//            // Выборка количества товаров в корзине конкретного пользователя
+//            query = "SELECT COUNT(product_price) FROM Shoppingbag WHERE client = (SELECT listUsers_id FROM ListUsers WHERE listUsers_Email = '" + roleUser_str + "'";
+//            result1 = statement.executeQuery(query);
+//
+//            result1.first();
+//            session.setAttribute("statusOfShoppingBag", result1.getString(1));
+//
+//        } catch (Exception ex) {
+//            //выводим наиболее значимые сообщения
+//            Logger.getLogger(AccountServlet.class.getName()).log(Level.SEVERE, null, ex);
+//        } finally {
+//            if (connection != null) {
+//                try {
+//                    connection.close();
+//                } catch (SQLException ex) {
+//                    Logger.getLogger(AccountServlet.class.getName()).log(Level.SEVERE, null, ex);
+//                }
+//            }
+//        }
     }
 %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -81,10 +126,10 @@
                     <a href="checkout.jsp">
                         <div class="total">
                             <%--<span class="simpleCart_total"></span></div>--%>
-                        <span class="">$ ${ summPriceOfShoppingBag }</span></div>
+                        <span class="">Amount:&nbsp ${ amountProductsInShoppingBag } $</span></div>
                         <img src="images/cart-1.png" alt="" />
                     </a>
-                    <p><a href="javascript:;" class="simpleCart_empty">${ statusOfShoppingBag }</a></p>
+                    <p><a href="javascript:;" class="simpleCart_empty">Quantity:&nbsp ${ quantityProductsInShoppingBag }&nbsp pr.</a></p>
                     <div class="clearfix"> </div>
                 </div>
             </div>
@@ -95,13 +140,13 @@
 <!--top-header-->
 <!--start-logo-->
 <div class="logo">
-    <a href="index.jsp"><h1>
-        Luxury Watches
+    <a href="index.jsp"><h3>
+        Luxury Watches </br>
         Role: ${role}   </br>
         ID Session: ${pageContext.session.id} </br>
-        <%--userExistence_Switch: ${userExistence_Switch} </br>--%>
-        <%--userExistence: ${userExistence} </br>--%>
-    </h1></a>
+        amountProductsInShoppingBag: ${amountProductsInShoppingBag} </br>
+        quantityProductsInShoppingBag: ${quantityProductsInShoppingBag} </br>
+    </h3></a>
 </div>
 <!--start-logo-->
 <!--bottom-header-->

@@ -129,7 +129,7 @@
                         <span class="">Amount:&nbsp ${ amountProductsInShoppingBag } $</span></div>
                         <img src="images/cart-1.png" alt="" />
                     </a>
-                    <p><a href="javascript:;" class="simpleCart_empty">Quantity:&nbsp ${ quantityProductsInShoppingBag } </a></p>
+                    <p><a href="javascript:;" class="simpleCart_empty">Quantity:&nbsp ${ quantityProductsInShoppingBag }&nbsp pr.</a></p>
                     <div class="clearfix"> </div>
                 </div>
             </div>

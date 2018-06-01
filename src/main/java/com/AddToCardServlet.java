@@ -36,15 +36,8 @@ public class AddToCardServlet extends HttpServlet {
         HttpSession session = request.getSession(true);
         String roleUser_str = (String) session.getAttribute("role");
 
-        PrintWriter writer = response.getWriter();
-        response.setContentType("text/html");
-
-//        writer.println("idProduct = " + idProduct);
-//        writer.println("img01Product = " + img01Product);
-//        writer.println("priceProduct = " + priceProduct);
-//        writer.println("nameProduct = " + nameProduct);
-//        writer.println("roleUser_str = " + roleUser_str);
-
+//        PrintWriter writer = response.getWriter();
+//        response.setContentType("text/html");
 
         // Connect to database
         String hostName = "sqlserverdb0.database.windows.net";
@@ -53,13 +46,14 @@ public class AddToCardServlet extends HttpServlet {
         String password = "80978986707sS";
         String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
         Connection connection = null;
+        Statement statement = null;
 
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             connection = DriverManager.getConnection(url);
 //            //String schema = connection.getSchema();
 
-            Statement statement = connection.createStatement();
+            statement = connection.createStatement();
 
             // Select Brand
             String query0 = "SELECT brand_name FROM Brand WHERE brand_id = " + brandProduct;
@@ -89,6 +83,59 @@ public class AddToCardServlet extends HttpServlet {
             }
         }
 
-        writer.close();
+        // обновление корзины
+//        try {
+//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+//            connection = DriverManager.getConnection(url);
+//            statement = connection.createStatement();
+//
+//            // Выборка стоимости товаров в корзине конкретного пользователя
+//            String query = "SELECT SUM(product_price) FROM Shoppingbag WHERE client = (SELECT listUsers_id FROM ListUsers WHERE listUsers_Email = '" + roleUser_str + "')";
+//            ResultSet result = statement.executeQuery(query);
+//
+//            while (result.next()) {
+//                session.setAttribute("amountProductsInShoppingBag", result.getInt(1));
+//            }
+//        } catch (Exception ex) {
+//            //выводим наиболее значимые сообщения
+//            Logger.getLogger(AccountServlet.class.getName()).log(Level.SEVERE, null, ex);
+//        } finally {
+//            if (connection != null) {
+//                try {
+//                    connection.close();
+//                } catch (SQLException ex) {
+//                    Logger.getLogger(AccountServlet.class.getName()).log(Level.SEVERE, null, ex);
+//                }
+//            }
+//        }
+//
+//        try {
+//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+//            connection = DriverManager.getConnection(url);
+//            statement = connection.createStatement();
+//
+//            // Выборка количества товаров в корзине конкретного пользователя
+//            String query  = "SELECT COUNT(product_price) FROM Shoppingbag WHERE client = (SELECT listUsers_id FROM ListUsers WHERE listUsers_Email = '" + roleUser_str + "')";
+//            ResultSet result1 = statement.executeQuery(query);
+//
+//            while (result1.next()) {
+//                session.setAttribute("quantityProductsInShoppingBag", result1.getString(1));
+//            }
+//        } catch (Exception ex) {
+//            //выводим наиболее значимые сообщения
+//            Logger.getLogger(AccountServlet.class.getName()).log(Level.SEVERE, null, ex);
+//        } finally {
+//            if (connection != null) {
+//                try {
+//                    connection.close();
+//                } catch (SQLException ex) {
+//                    Logger.getLogger(AccountServlet.class.getName()).log(Level.SEVERE, null, ex);
+//                }
+//            }
+//        }
+//        //
+//        // Обновление текущей странички
+//        request.getContextPath();
+
     }
 }

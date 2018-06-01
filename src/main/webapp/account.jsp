@@ -15,7 +15,7 @@
         if ('${userExistence}' == undefined || '${userExistence}' == null || '${userExistence}' == "true") {
             alert("Ошибка! Пользователь не существует");
         } else if ('${userExistence}' == "false") {
-            alert("Пользователь существует");
+            //alert("Пользователь существует");
         }
     }
 </script>

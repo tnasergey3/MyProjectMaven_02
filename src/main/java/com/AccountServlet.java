@@ -19,7 +19,7 @@ public class AccountServlet extends HttpServlet {
         HttpSession session = request.getSession(true);
         String roleUser_str = request.getParameter("roleUser");
         session.setAttribute("userExistence_Switch", "on");
-        session.setAttribute("userExistence", "true");
+        //session.setAttribute("userExistence", "true");
 
         String result1_str = null;
         Statement statement = null;
@@ -33,56 +33,93 @@ public class AccountServlet extends HttpServlet {
             String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
             Connection connection = null;
 
-        try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            connection = DriverManager.getConnection(url);
-            statement = connection.createStatement();
+            try {
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                connection = DriverManager.getConnection(url);
+                statement = connection.createStatement();
 
-            // Проверка на существование пользователя в базе
-            String query = "SELECT listUsers_Email FROM ListUsers WHERE listUsers_Email = '" + roleUser_str + "'";
-            ResultSet result1 = statement.executeQuery(query);
+                // Проверка на существование пользователя в базе
+                String query = "SELECT listUsers_Email FROM ListUsers WHERE listUsers_Email = '" + roleUser_str + "'";
+                ResultSet result1 = statement.executeQuery(query);
 
-            while (result1.next()) {
-                result1_str = result1.getString("listUsers_Email");
-            }
-
-                if(result1_str.equals(roleUser_str)){ // Проверка если пользователь существует
-                    session.invalidate();
-                    session = request.getSession(true);
-                    session.setAttribute("role", roleUser_str);
-                    session.setAttribute("statusLoginInHeader", "Exit");
-                    session.setAttribute("userExistence", "true");
-
-                    // Выборка стоимости товаров в корзине конкретного пользователя
-                    query = "SELECT SUM(product_price) FROM Shoppingbag WHERE client = (SELECT listUsers_id FROM ListUsers WHERE listUsers_Email = '" + roleUser_str + "'";
-                    ResultSet result11 = statement.executeQuery(query);
-
-                    result11.first();
-                    session.setAttribute("amountProductsInShoppingBag", result1.getInt(1));
-
-                    // Выборка количества товаров в корзине конкретного пользователя
-                    query = "SELECT COUNT(product_price) FROM Shoppingbag WHERE client = (SELECT listUsers_id FROM ListUsers WHERE listUsers_Email = '" + roleUser_str + "'";
-                    result11 = statement.executeQuery(query);
-
-                    result11.first();
-                    session.setAttribute("quantityProductsInShoppingBag", result1.getString(1));
-
-                } else {
-                    session.setAttribute("userExistence", "false");
-                }
-
-        } catch (Exception ex) {
-            //выводим наиболее значимые сообщения
-            Logger.getLogger(AccountServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException ex) {
+                    while (result1.next()) {
+                        result1_str = result1.getString("listUsers_Email");
+                    }
+            } catch (Exception ex) {
+                    //выводим наиболее значимые сообщения
                     Logger.getLogger(AccountServlet.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                if (connection != null) {
+                     try {
+                        connection.close();
+                     } catch (SQLException ex) {
+                         Logger.getLogger(AccountServlet.class.getName()).log(Level.SEVERE, null, ex);
+                     }
                 }
             }
+
+            if(result1_str.equals(roleUser_str)){ // Проверка если пользователь существует
+                 session.invalidate();
+                 session = request.getSession(true);
+                 session.setAttribute("role", roleUser_str);
+                 session.setAttribute("statusLoginInHeader", "Exit");
+                 session.setAttribute("userExistence", "false");
+
+            try {
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                connection = DriverManager.getConnection(url);
+                statement = connection.createStatement();
+
+                // Выборка стоимости товаров в корзине конкретного пользователя
+                String query = "SELECT SUM(product_price) FROM Shoppingbag WHERE client = (SELECT listUsers_id FROM ListUsers WHERE listUsers_Email = '" + roleUser_str + "')";
+                ResultSet result = statement.executeQuery(query);
+
+                //result11.first();
+                while (result.next()) {
+                    session.setAttribute("amountProductsInShoppingBag", result.getInt(1));
+                }
+            } catch (Exception ex) {
+                //выводим наиболее значимые сообщения
+                Logger.getLogger(AccountServlet.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                if (connection != null) {
+                    try {
+                        connection.close();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(AccountServlet.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+
+            try {
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                connection = DriverManager.getConnection(url);
+                statement = connection.createStatement();
+
+                // Выборка количества товаров в корзине конкретного пользователя
+                String query  = "SELECT COUNT(product_price) FROM Shoppingbag WHERE client = (SELECT listUsers_id FROM ListUsers WHERE listUsers_Email = '" + roleUser_str + "')";
+                ResultSet result1 = statement.executeQuery(query);
+
+                while (result1.next()) {
+                    session.setAttribute("quantityProductsInShoppingBag", result1.getString(1));
+                }
+            } catch (Exception ex) {
+                //выводим наиболее значимые сообщения
+                Logger.getLogger(AccountServlet.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                if (connection != null) {
+                    try {
+                        connection.close();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(AccountServlet.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+
+        } else {
+            session.setAttribute("userExistence", "true");
         }
+
         }
         request.getRequestDispatcher("/account.jsp").forward(request, response);
     }
