@@ -16,48 +16,7 @@
         session.setAttribute("amountProductsInShoppingBag", "0");
         session.setAttribute("quantityProductsInShoppingBag", "0");
     } else {
-//        String roleUser_str = request.getParameter("role");
 
-//        // Connect to database
-//        String hostName = "sqlserverdb0.database.windows.net";
-//        String dbName = "luxuryWatchesDB";
-//        String user = "sqladmin";
-//        String password = "80978986707sS";
-//        String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
-//        Connection connection = null;
-//        Statement statement = null;
-
-//        try {
-//            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//            connection = DriverManager.getConnection(url);
-//            statement = connection.createStatement();
-//
-//            // Выборка стоимости товаров в корзине конкретного пользователя
-//            String query = "SELECT SUM(product_price) FROM Shoppingbag WHERE client = (SELECT listUsers_id FROM ListUsers WHERE listUsers_Email = '" + roleUser_str + "'";
-//            ResultSet result1 = statement.executeQuery(query);
-//
-//            result1.first();
-//            session.setAttribute("summPriceOfShoppingBag", result1.getInt(1));
-//
-//            // Выборка количества товаров в корзине конкретного пользователя
-//            query = "SELECT COUNT(product_price) FROM Shoppingbag WHERE client = (SELECT listUsers_id FROM ListUsers WHERE listUsers_Email = '" + roleUser_str + "'";
-//            result1 = statement.executeQuery(query);
-//
-//            result1.first();
-//            session.setAttribute("statusOfShoppingBag", result1.getString(1));
-//
-//        } catch (Exception ex) {
-//            //выводим наиболее значимые сообщения
-//            Logger.getLogger(AccountServlet.class.getName()).log(Level.SEVERE, null, ex);
-//        } finally {
-//            if (connection != null) {
-//                try {
-//                    connection.close();
-//                } catch (SQLException ex) {
-//                    Logger.getLogger(AccountServlet.class.getName()).log(Level.SEVERE, null, ex);
-//                }
-//            }
-//        }
     }
 %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>

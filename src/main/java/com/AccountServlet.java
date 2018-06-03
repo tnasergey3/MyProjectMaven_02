@@ -19,7 +19,8 @@ public class AccountServlet extends HttpServlet {
         HttpSession session = request.getSession(true);
         String roleUser_str = request.getParameter("roleUser");
         session.setAttribute("userExistence_Switch", "on");
-        //session.setAttribute("userExistence", "true");
+        session.setAttribute("amountProductsInShoppingBag", "0");
+        session.setAttribute("quantityProductsInShoppingBag", "0");
 
         String result1_str = null;
         Statement statement = null;
@@ -58,12 +59,12 @@ public class AccountServlet extends HttpServlet {
                 }
             }
 
-            if(result1_str.equals(roleUser_str)){ // Проверка если пользователь существует
+            if(result1_str != null && result1_str.equals(roleUser_str)){ // Проверка если пользователь существует
                  session.invalidate();
                  session = request.getSession(true);
                  session.setAttribute("role", roleUser_str);
                  session.setAttribute("statusLoginInHeader", "Exit");
-                 session.setAttribute("userExistence", "false");
+                 session.setAttribute("userExistence", "true");
 
             try {
                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -117,7 +118,7 @@ public class AccountServlet extends HttpServlet {
             }
 
         } else {
-            session.setAttribute("userExistence", "true");
+            session.setAttribute("userExistence", "false");
         }
 
         }

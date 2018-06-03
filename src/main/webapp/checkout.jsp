@@ -107,6 +107,7 @@
                                     data: "client_del=<%= listProductsInShoppingbag.get(i).client %>&product_id_del=<%= listProductsInShoppingbag.get(i).product_id %>",
                                     success: function(data) {
 //                                        alert("Success");
+                                        location.reload();
                                     },
                                     error: function(data){
 //                                        alert("Not success");
@@ -140,54 +141,26 @@
                                 <div class="clearfix"> </div>
                             </ul>
                     <%  }  %>
-                <%--<%--%>
-                    <%--// Создание разметки корзины--%>
-                    <%--for (int i = 0; i < listProductsInShoppingbag.size(); i++){--%>
-                        <%--out.print("<ul class=\"");  %>cart-header<%= i %>">--%>
-                <%--<%      out.print("<div class=\"");  %>close<%= i %>" value=""></div>--%>
-            <%--<%      out.println("<li class=\"ring-in\"><a href=\"single.jsp\" ><img width=\"200px\" height=\"200px\" src=\""); %> <%= listProductsInShoppingbag.get(i).product_img01 %>--%>
-            <%--<%      out.println("\" class=\"img-responsive\" alt=\"\"></a></li>");--%>
-                <%--out.print("<li><span class=\"name\">"); %> <%= listProductsInShoppingbag.get(i).product_name %> </span></li>--%>
-            <%--<%      out.print("<li><span class=\"cost\">");%> $ <%= listProductsInShoppingbag.get(i).product_price %> </span></li>--%>
-            <%--<%      out.println("<li><span>Free</span>");--%>
-                <%--out.println("<p>Delivered in 2-3 weeks</p></li>");--%>
-                <%--out.println("<div class=\"clearfix\"> </div>");--%>
-                <%--out.println("</ul>");--%>
-            <%--}--%>
-            <%--%>--%>
-                    <%--<ul class="cart-header">--%>
-                        <%--<div class="close1"> </div>--%>
-                        <%--<li class="ring-in"><a href="single.jsp" ><img src="images/c-1.jpg" class="img-responsive" alt=""></a>--%>
-                        <%--</li>--%>
-                        <%--<li><span class="name">Analog Watches</span></li>--%>
-                        <%--<li><span class="cost">$ 290.00</span></li>--%>
-                        <%--<li><span>Free</span>--%>
-                            <%--<p>Delivered in 2-3 business days</p></li>--%>
-                        <%--<div class="clearfix"> </div>--%>
-                    <%--</ul>--%>
-                    <%--<ul class=" cart-header1">--%>
-                        <%--<div class="close2"> </div>--%>
-                        <%--<li class="ring-in"><a href="single.jsp" ><img src="images/c-2.jpg" class="img-responsive" alt=""></a>--%>
-                        <%--</li>--%>
-                        <%--<li><span class="name">Analog Watches</span></li>--%>
-                        <%--<li><span class="cost">$ 300.00</span></li>--%>
-                        <%--<li><span>Free</span>--%>
-                            <%--<p>Delivered in 2-3 business days</p></li>--%>
-                        <%--<div class="clearfix"> </div>--%>
-                    <%--</ul>--%>
-                    <%--<ul class="cart-header2">--%>
-                        <%--<div class="close3"> </div>--%>
-                        <%--<li class="ring-in"><a href="single.jsp" ><img src="images/c-3.jpg" class="img-responsive" alt=""></a>--%>
-                        <%--</li>--%>
-                        <%--<li><span class="name">Analog Watches</span></li>--%>
-                        <%--<li><span class="cost">$ 360.00</span></li>--%>
-                        <%--<li><span>Free</span>--%>
-                            <%--<p>Delivered in 2-3 business days</p></li>--%>
-                        <%--<div class="clearfix"> </div>--%>
-                    <%--</ul>--%>
+
                 </div>
+                <ul class="unit" style="background: #BCBBBB;">
+                    <li><span></span></li>
+                    <li><span style="font-weight:bold">Quantity: &nbsp ${quantityProductsInShoppingBag} &nbsp pr.</span></li>
+                    <li><span style="font-weight:bold">Total price: &nbsp $ &nbsp ${amountProductsInShoppingBag}</span></li>
+                    <li><span style="
+  color: #fff; /* цвет текста */
+  text-decoration: none; /* убирать подчёркивание у ссылок */
+  user-select: none; /* убирать выделение текста */
+  background: rgb(212,75,56); /* фон кнопки */
+  padding: .7em 1.5em; /* отступ от текста */
+  outline: none; /* убирать контур в Mozilla */"
+                              onclick="window.open('typo.jsp')">Buy</span></li>
+                    <li> </li>
+                    <div class="clearfix"> </div>
+                </ul>
             </div>
         </div>
+        <div >
     </div>
 </div>
 <!--end-ckeckout-->
