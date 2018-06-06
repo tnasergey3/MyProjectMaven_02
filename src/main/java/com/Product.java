@@ -1,7 +1,7 @@
 package com;
 
 public class Product {
-    public String product_id;
+    public int product_id;
     public String product_name;
     public int category;
     public int brand;
@@ -17,9 +17,5 @@ public class Product {
     public String product_picture01;
     public String product_picture02;
     public String product_picture03;
-
-//    public String Get_product_name() {
-//        return this.product_name;
-//    }
 
 }

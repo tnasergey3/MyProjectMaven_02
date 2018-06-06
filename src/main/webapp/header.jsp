@@ -99,13 +99,13 @@
 <!--top-header-->
 <!--start-logo-->
 <div class="logo">
-    <a href="index.jsp"><h3>
+    <a href="index.jsp"><h1>
         Luxury Watches </br>
-        Role: ${role}   </br>
-        ID Session: ${pageContext.session.id} </br>
-        amountProductsInShoppingBag: ${amountProductsInShoppingBag} </br>
-        quantityProductsInShoppingBag: ${quantityProductsInShoppingBag} </br>
-    </h3></a>
+        <%--Role: ${role}   </br>--%>
+        <%--ID Session: ${pageContext.session.id} </br>--%>
+        <%--amountProductsInShoppingBag: ${amountProductsInShoppingBag} </br>--%>
+        <%--quantityProductsInShoppingBag: ${quantityProductsInShoppingBag} </br>--%>
+    </h1></a>
 </div>
 <!--start-logo-->
 <!--bottom-header-->

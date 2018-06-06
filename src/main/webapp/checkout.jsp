@@ -19,6 +19,8 @@
     List<ProductInShoppingbag> listProductsInShoppingbag = new ArrayList<>();
     // Количество товаров в корзине
     String countProductInShoppingbag = null;
+    // id клиента
+    int idClient = 0;
 
     // Connect to database
     String hostName = "sqlserverdb0.database.windows.net";
@@ -45,6 +47,7 @@
             prodShoppingbag.shoppingbag_id = Integer.parseInt(result11.getString("shoppingbag_id"));
             prodShoppingbag.client = Integer.parseInt(result11.getString("client"));
             prodShoppingbag.product_id = Integer.parseInt(result11.getString("product_id"));
+            idClient = prodShoppingbag.product_id;
             prodShoppingbag.product_name = result11.getString("product_name");
             prodShoppingbag.product_price = Integer.parseInt(result11.getString("product_price"));
             prodShoppingbag.product_img01 = result11.getString("product_img01");
@@ -154,7 +157,7 @@
   background: rgb(212,75,56); /* фон кнопки */
   padding: .7em 1.5em; /* отступ от текста */
   outline: none; /* убирать контур в Mozilla */"
-                              onclick="window.open('typo.jsp')">Buy</span></li>
+                              onclick="window.open('PurchasesServlet?idClient=<%= idClient %>')">Buy</span></li>
                     <li> </li>
                     <div class="clearfix"> </div>
                 </ul>

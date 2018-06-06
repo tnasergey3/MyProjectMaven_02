@@ -31,7 +31,7 @@ public class AddToCardServlet extends HttpServlet {
         String brandProduct = request.getParameter("brandProduct");
         String brandProduct_str = null;
 
-        Date dateOfPurchase = new Date();
+
 
         HttpSession session = request.getSession(true);
         String roleUser_str = (String) session.getAttribute("role");

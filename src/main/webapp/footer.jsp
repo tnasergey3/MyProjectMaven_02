@@ -35,7 +35,7 @@
                     <li><a href="#"><p>My Credit slips</p></a></li>
                     <li><a href="#"><p>My Merchandise returns</p></a></li>
                     <li><a href="#"><p>My Personal info</p></a></li>
-                    <li><a href="#"><p>My Addresses</p></a></li>
+                    <li><a href="purchases.jsp"><p>My purchases</p></a></li>
                 </ul>
             </div>
             <div class="col-md-3 infor-left">

@@ -41,7 +41,7 @@
         while (result1.next()) {
 
             //Product prod_single = new Product();
-            prod_single.product_id = result1.getString("product_id");
+            prod_single.product_id = Integer.parseInt(result1.getString("product_id"));
             prod_single.product_name = result1.getString("product_name");
             prod_single.category = Integer.parseInt(result1.getString("category"));
             prod_single.brand = Integer.parseInt(result1.getString("brand"));

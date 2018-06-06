@@ -59,7 +59,7 @@ public class MenuMaintenanceServlet extends HttpServlet {
             while (result1.next()) {
 
                 Product prod = new Product();
-                prod.product_id = result1.getString("product_id");
+                prod.product_id = Integer.parseInt(result1.getString("product_id"));
                 prod.product_name = result1.getString("product_name");
                 prod.category = Integer.parseInt(result1.getString("category"));
                 prod.brand = Integer.parseInt(result1.getString("brand"));

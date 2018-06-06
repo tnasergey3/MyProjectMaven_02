@@ -5,7 +5,8 @@
 <%@ page import="com.Product" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="com.ProductInShoppingbag" %><%--
+<%@ page import="com.ProductInShoppingbag" %>
+<%@ page import="com.Purchases" %><%--
   Created by IntelliJ IDEA.
   User: user
   Date: 28.11.2017
@@ -17,7 +18,7 @@
     session = request.getSession(true);
     String roleUser_str = (String) session.getAttribute("role");
     //Список для хранения товаров в корзине
-    List<ProductInShoppingbag> listProductsInShoppingbag = new ArrayList<>();
+    List<Purchases> listProductsOfPurchases = new ArrayList<>();
     // Количество товаров в корзине
     String countProductInShoppingbag = null;
 
@@ -37,21 +38,22 @@
         statement = connection.createStatement();
 
         // Чтение из базы содержимого корзины
-        String query333 = "SELECT * FROM Shoppingbag WHERE client = (SELECT listUsers_id FROM ListUsers WHERE listUsers_Email = " + "'" + roleUser_str + "'" + ")";
+        String query333 = "SELECT * FROM Purchase WHERE client = (SELECT listUsers_id FROM ListUsers WHERE listUsers_Email = " + "'" + roleUser_str + "'" + ")";
         ResultSet result11 = statement.executeQuery(query333);
 
         while (result11.next()) {
 
-            ProductInShoppingbag prodShoppingbag = new ProductInShoppingbag();
-            prodShoppingbag.shoppingbag_id = Integer.parseInt(result11.getString("shoppingbag_id"));
-            prodShoppingbag.client = Integer.parseInt(result11.getString("client"));
-            prodShoppingbag.product_id = Integer.parseInt(result11.getString("product_id"));
-            prodShoppingbag.product_name = result11.getString("product_name");
-            prodShoppingbag.product_price = Integer.parseInt(result11.getString("product_price"));
-            prodShoppingbag.product_img01 = result11.getString("product_img01");
+            Purchases purchases = new Purchases();
+            purchases.purchase_id = Integer.parseInt(result11.getString("purchase_id"));
+            purchases.purchase_date = result11.getString("purchase_date");
+            purchases.client = Integer.parseInt(result11.getString("client"));
+            purchases.status = result11.getString("status");
+            purchases.product_id = Integer.parseInt(result11.getString("product_id"));
+            purchases.product_name = result11.getString("product_name");
+            purchases.product_price = Integer.parseInt(result11.getString("product_price"));
+            purchases.product_img01 = result11.getString("product_img01");
 
-            listProductsInShoppingbag.add(prodShoppingbag);
-            //request.setAttribute("listProductsInShoppingbag", listProductsInShoppingbag);
+            listProductsOfPurchases.add(purchases);
         }
 
     } catch (Exception ex) {
@@ -89,35 +91,38 @@
 <div class="ckeckout">
     <div class="container">
         <div class="ckeck-top heading">
-            <h2>Purchases:</h2>
+            <h2>Purchases: ... for testing ...</h2>
         </div>
         <div class="ckeckout-top">
             <div class="cart-items">
 
                 <%
-                    for (int i = 0; i < listProductsInShoppingbag.size(); i++){  %>
-                    <script>$(document).ready(function(c) {
-                        $('.close<%= i %>').on('click', function(c){
-                            $('.cart-header<%= i %>').fadeOut('slow', function(c){
-                                $('.cart-header<%= i %>').remove();
-                                //alert('<%= listProductsInShoppingbag.get(i).product_name %>');
+                    for (int i = 0; i < listProductsOfPurchases.size(); i++){  %>
 
-                                $.ajax({
-                                    type: "POST",
-                                    url: "DeleteFromShoppingBagServlet",
-                                    data: "client_del=<%= listProductsInShoppingbag.get(i).client %>&product_id_del=<%= listProductsInShoppingbag.get(i).product_id %>",
-                                    success: function(data) {
-//                                        alert("Success");
-                                        location.reload();
-                                    },
-                                    error: function(data){
-//                                        alert("Not success");
-                                    }
-                                });
-                            });
-                        });
-                    });
-                    </script>
+
+                <script>
+                    <%--$(document).ready(function(c) {--%>
+                        <%--$('.close<%= i %>').on('click', function(c){--%>
+                            <%--$('.cart-header<%= i %>').fadeOut('slow', function(c){--%>
+                                <%--$('.cart-header<%= i %>').remove();--%>
+                                <%--//alert('<%= listProductsOfPurchases.get(i).product_name %>');--%>
+
+                                <%--$.ajax({--%>
+                                    <%--type: "POST",--%>
+                                    <%--url: "DeleteFromShoppingBagServlet",--%>
+                                    <%--data: "client_del=<%= listProductsOfPurchases.get(i).client %>&product_id_del=<%= listProductsOfPurchases.get(i).product_id %>",--%>
+                                    <%--success: function(data) {--%>
+<%--//                                        alert("Success");--%>
+                                        <%--location.reload();--%>
+                                    <%--},--%>
+                                    <%--error: function(data){--%>
+<%--//                                        alert("Not success");--%>
+                                    <%--}--%>
+                                <%--});--%>
+                            <%--});--%>
+                        <%--});--%>
+                    <%--});--%>
+                </script>
                 <%  } %>
 
                 <div class="in-check" >
@@ -131,12 +136,12 @@
                     </ul>
                     <%
                         // Создание разметки корзины
-                        for (int i = 0; i < listProductsInShoppingbag.size(); i++){ %>
+                        for (int i = 0; i < listProductsOfPurchases.size(); i++){ %>
                             <ul class="cart-header<%= i %>">
                                 <div class="close<%= i %>" value="123456"></div>
-                                    <li class="ring-in"><a href="single.jsp" ><img width="100px" height="100px" src=" <%= listProductsInShoppingbag.get(i).product_img01 %>" class="img-responsive" alt=""></a></li>
-                                    <li><span class="name"> <%= listProductsInShoppingbag.get(i).product_name %> </span></li>
-                                    <li><span class="cost"> $ <%= listProductsInShoppingbag.get(i).product_price %> </span></li>
+                                    <li class="ring-in"><a href="single.jsp" ><img width="100px" height="100px" src=" <%= listProductsOfPurchases.get(i).product_img01 %>" class="img-responsive" alt=""></a></li>
+                                    <li><span class="name"> <%= listProductsOfPurchases.get(i).product_name %> </span></li>
+                                    <li><span class="cost"> $ <%= listProductsOfPurchases.get(i).product_price %> </span></li>
                                     <li><span>Free</span>
                                     <p>Delivered in 2-3 weeks</p></li>
                                 <div class="clearfix"> </div>
@@ -146,17 +151,9 @@
                 </div>
                 <ul class="unit" style="background: #BCBBBB;">
                     <li><span></span></li>
-                    <li><span style="font-weight:bold">Quantity: &nbsp ${quantityProductsInShoppingBag} &nbsp pr.</span></li>
-                    <li><span style="font-weight:bold">Total price: &nbsp $ &nbsp ${amountProductsInShoppingBag}</span></li>
-                    <li><span style="
-  color: #fff; /* цвет текста */
-  text-decoration: none; /* убирать подчёркивание у ссылок */
-  user-select: none; /* убирать выделение текста */
-  background: rgb(212,75,56); /* фон кнопки */
-  padding: .7em 1.5em; /* отступ от текста */
-  outline: none; /* убирать контур в Mozilla */"
-                              onclick="window.open('typo.jsp')">Buy</span></li>
-                    <li> </li>
+                    <li><span style="font-weight:bold">Quantity: &nbsp ${quantityProductsInPurchase} &nbsp pr.</span></li>
+                    <li><span style="font-weight:bold">Total price: &nbsp $ &nbsp ${amountProductsInPurchase}</span></li>
+                    <li><span style="font-weight:bold">  </span></li>
                     <div class="clearfix"> </div>
                 </ul>
             </div>
